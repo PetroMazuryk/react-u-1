@@ -21,7 +21,11 @@ export const App = () => {
   return (
     <div className="App">
       <PostForm create={createPost} />
-      <PostList remove={removePost} posts={posts} title="Список постів" />
+      {posts.length !== 0 ? (
+        <PostList remove={removePost} posts={posts} title="Список постів" />
+      ) : (
+        <h1 style={{ textAlign: 'center' }}>Пости не знайдені</h1>
+      )}
     </div>
   );
 };
