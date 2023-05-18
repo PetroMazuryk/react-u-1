@@ -4,6 +4,8 @@ import PostList from 'components/PostList';
 
 import PostForm from 'components/PostForm';
 import PostFilter from 'components/PostFilter';
+import MyModal from 'components/UI/MyModal/MyModal';
+import MyButton from 'components/UI/button/MyButton';
 
 export const App = () => {
   const [posts, setPosts] = useState([
@@ -12,6 +14,7 @@ export const App = () => {
     { id: 3, title: 'JavaScript', body: 'Get good at JavaScript' },
   ]);
   const [filter, setFilter] = useState({ sort: '', query: '' });
+  const [modal, setModal] = useState(false);
 
   const sortedPosts = useMemo(() => {
     // console.log('Сортування');
@@ -31,6 +34,7 @@ export const App = () => {
 
   const createPost = newPost => {
     setPosts([...posts, newPost]);
+    setModal(false);
   };
 
   const removePost = post => {
@@ -39,7 +43,13 @@ export const App = () => {
 
   return (
     <div className="App">
-      <PostForm create={createPost} />
+      <MyButton style={{ marginTop: 30 }} onClick={() => setModal(true)}>
+        Створити користувача
+      </MyButton>
+      <MyModal visible={modal} setVisible={setModal}>
+        <PostForm create={createPost} />
+      </MyModal>
+
       <hr style={{ margin: '15px 0' }} />
       <PostFilter filter={filter} setFilter={setFilter} />
       <PostList
