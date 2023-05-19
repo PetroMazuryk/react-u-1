@@ -7,7 +7,7 @@ import PostFilter from 'components/PostFilter';
 import MyModal from 'components/UI/MyModal/MyModal';
 import MyButton from 'components/UI/button/MyButton';
 import { usePosts } from 'hooks/usePosts';
-import axios from 'axios';
+
 import PostService from 'API/PostService';
 
 export const App = () => {
