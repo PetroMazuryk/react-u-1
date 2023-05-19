@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles/App.css';
 import PostList from 'components/PostList';
 
@@ -7,21 +7,28 @@ import PostFilter from 'components/PostFilter';
 import MyModal from 'components/UI/MyModal/MyModal';
 import MyButton from 'components/UI/button/MyButton';
 import { usePosts } from 'hooks/usePosts';
+import axios from 'axios';
+import PostService from 'API/PostService';
 
 export const App = () => {
-  const [posts, setPosts] = useState([
-    { id: 1, title: 'Type Script', body: 'Learn Type Script' },
-    { id: 2, title: 'Node.js', body: 'Discover Node.js' },
-    { id: 3, title: 'JavaScript', body: 'Get good at JavaScript' },
-  ]);
+  const [posts, setPosts] = useState([]);
   const [filter, setFilter] = useState({ sort: '', query: '' });
   const [modal, setModal] = useState(false);
   const sortedAndSearchedPosts = usePosts(posts, filter.sort, filter.query);
+
+  useEffect(() => {
+    fetchPost();
+  }, []);
 
   const createPost = newPost => {
     setPosts([...posts, newPost]);
     setModal(false);
   };
+
+  async function fetchPost() {
+    const posts = await PostService.getAll();
+    setPosts(posts);
+  }
 
   const removePost = post => {
     setPosts(posts.filter(p => p.id !== post.id));
@@ -29,6 +36,7 @@ export const App = () => {
 
   return (
     <div className="App">
+      <button onClick={fetchPost}>Get Post</button>
       <MyButton style={{ marginTop: 30 }} onClick={() => setModal(true)}>
         Створити користувача
       </MyButton>
