@@ -8,7 +8,7 @@ import MyModal from 'components/UI/MyModal/MyModal';
 import MyButton from 'components/UI/button/MyButton';
 import { usePosts } from 'hooks/usePosts';
 import Loader from 'components/UI/Loader/Loader';
-
+import { useFetching } from 'hooks/useFetching';
 import PostService from 'API/PostService';
 
 export const App = () => {
@@ -16,7 +16,11 @@ export const App = () => {
   const [filter, setFilter] = useState({ sort: '', query: '' });
   const [modal, setModal] = useState(false);
   const sortedAndSearchedPosts = usePosts(posts, filter.sort, filter.query);
-  const [isPostLoading, setIsPostLoading] = useState(false);
+
+  const [fetchPost, isPostLoading, postError] = useFetching(async () => {
+    const posts = await PostService.getAll();
+    setPosts(posts);
+  });
 
   useEffect(() => {
     fetchPost();
@@ -26,15 +30,6 @@ export const App = () => {
     setPosts([...posts, newPost]);
     setModal(false);
   };
-
-  async function fetchPost() {
-    setIsPostLoading(true);
-    setTimeout(async () => {
-      const posts = await PostService.getAll();
-      setPosts(posts);
-      setIsPostLoading(false);
-    }, 1000);
-  }
 
   const removePost = post => {
     setPosts(posts.filter(p => p.id !== post.id));
@@ -52,6 +47,7 @@ export const App = () => {
 
       <hr style={{ margin: '15px 0' }} />
       <PostFilter filter={filter} setFilter={setFilter} />
+      {postError && <h2>Відбулася помилка ${postError}</h2>}
       {isPostLoading ? (
         <div
           style={{
