@@ -10,32 +10,30 @@ import { usePosts } from 'hooks/usePosts';
 import Loader from 'components/UI/Loader/Loader';
 import { useFetching } from 'hooks/useFetching';
 import PostService from 'API/PostService';
-import { getPageCount, getPagesArray } from 'utils/pages';
+import { getPageCount } from 'utils/pages';
+import Pagination from 'components/UI/pagination/Pagination';
+import { getPagesArray } from 'utils/pages';
 
 export const App = () => {
   const [posts, setPosts] = useState([]);
   const [filter, setFilter] = useState({ sort: '', query: '' });
   const [modal, setModal] = useState(false);
   const [totalPages, setTotalPages] = useState(0);
-  const [limit, setLimit] = useState(10);
+  const [limit, _setLimit] = useState(10);
   const [page, setPage] = useState(1);
-
-  const sortedAndSearchedPosts = usePosts(posts, filter.sort, filter.query);
-
   let pagesArray = getPagesArray(totalPages);
-
-  console.log([pagesArray]);
+  const sortedAndSearchedPosts = usePosts(posts, filter.sort, filter.query);
 
   const [fetchPosts, isPostLoading, postError] = useFetching(
     async (limit, page) => {
       const response = await PostService.getAll(limit, page);
       setPosts(response.data);
-      console.log(response.headers['x-total-count']);
+      // console.log(response.headers['x-total-count']);
       const totalCount = response.headers['x-total-count'];
       setTotalPages(getPageCount(totalCount, limit));
     }
   );
-  console.log(setTotalPages);
+  // console.log(setTotalPages);
 
   useEffect(() => {
     fetchPosts(limit, page);
@@ -84,6 +82,8 @@ export const App = () => {
           title="Список постів"
         />
       )}
+
+      {/* <Pagination page={page} changePage={changePage} totalPage={totalPages} /> */}
       <div className="page__wrapper">
         {pagesArray.map(p => (
           <span
