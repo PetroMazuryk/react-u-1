@@ -12,16 +12,16 @@ import { useFetching } from 'hooks/useFetching';
 import PostService from 'API/PostService';
 import { getPageCount } from 'utils/pages';
 import Pagination from 'components/UI/pagination/Pagination';
-import { getPagesArray } from 'utils/pages';
 
 export const App = () => {
   const [posts, setPosts] = useState([]);
   const [filter, setFilter] = useState({ sort: '', query: '' });
   const [modal, setModal] = useState(false);
+
   const [totalPages, setTotalPages] = useState(0);
-  const [limit, _setLimit] = useState(10);
+  const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(1);
-  let pagesArray = getPagesArray(totalPages);
+
   const sortedAndSearchedPosts = usePosts(posts, filter.sort, filter.query);
 
   const [fetchPosts, isPostLoading, postError] = useFetching(
@@ -47,6 +47,7 @@ export const App = () => {
   const removePost = post => {
     setPosts(posts.filter(p => p.id !== post.id));
   };
+
   const changePage = page => {
     setPage(page);
     fetchPosts(limit, page);
@@ -82,19 +83,7 @@ export const App = () => {
           title="Список постів"
         />
       )}
-
-      {/* <Pagination page={page} changePage={changePage} totalPage={totalPages} /> */}
-      <div className="page__wrapper">
-        {pagesArray.map(p => (
-          <span
-            onClick={() => changePage(p)}
-            key={p}
-            className={page === p ? 'page page__current' : 'page'}
-          >
-            {p}
-          </span>
-        ))}
-      </div>
+      <Pagination page={page} changePage={changePage} totalPages={totalPages} />
     </div>
   );
 };
