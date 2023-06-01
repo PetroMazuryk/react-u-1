@@ -20,6 +20,11 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.post__btn {
+  display: flex;
+  gap: 10px;
+}
 /* Animation */
 .post-enter {
   transform: translateX(-350px);
