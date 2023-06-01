@@ -12,6 +12,7 @@ import { useFetching } from 'hooks/useFetching';
 import PostService from 'API/PostService';
 import { getPageCount } from 'utils/pages';
 import Pagination from 'components/UI/pagination/Pagination';
+import MySelect from 'components/UI/select/MySelect';
 
 export const Posts = () => {
   const [posts, setPosts] = useState([]);
@@ -37,7 +38,7 @@ export const Posts = () => {
 
   useEffect(() => {
     fetchPosts(limit, page);
-  }, []);
+  }, [limit, page]);
 
   const createPost = newPost => {
     setPosts([...posts, newPost]);
@@ -50,7 +51,7 @@ export const Posts = () => {
 
   const changePage = page => {
     setPage(page);
-    fetchPosts(limit, page);
+    // fetchPosts(limit, page);
   };
 
   return (
@@ -65,6 +66,17 @@ export const Posts = () => {
 
       <hr style={{ margin: '15px 0' }} />
       <PostFilter filter={filter} setFilter={setFilter} />
+      <MySelect
+        value={limit}
+        onChange={value => setLimit(value)}
+        defaultValue="Кількість елементів на сторінці"
+        options={[
+          { value: 5, name: '5' },
+          { value: 10, name: '10' },
+          { value: 25, name: '25' },
+          { value: -1, name: 'Показати все' },
+        ]}
+      />
       {postError && <h2>Відбулася помилка ${postError}</h2>}
       {isPostLoading ? (
         <div
