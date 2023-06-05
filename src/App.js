@@ -1,15 +1,29 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import './styles/App.css';
+import HomePage from 'pages/HomePage';
+import NewsPage from 'pages/NewsPage';
+import ToDoPage from 'pages/ToDoPage';
+import About from 'pages/About';
+import Posts from 'pages/Posts';
+import PostIdPage from 'pages/PostIdPage';
+import Error from 'pages/Error';
 
-import Navbar from 'components/UI/Navbar/Navbar';
-import AppRouter from 'components/AppRouter';
+import Layout from 'Layout/Layout';
 
 function App() {
   return (
-    <div>
-      <Navbar />
-      <AppRouter />
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path="news" element={<NewsPage />} />
+        <Route path="todo" element={<ToDoPage />} />
+        <Route path="about" element={<About />} />
+        <Route path="posts" element={<Posts />} />
+        <Route path="posts/:id" element={<PostIdPage />} />
+        <Route path="*" element={<Error />} />
+      </Route>
+    </Routes>
   );
 }
 
