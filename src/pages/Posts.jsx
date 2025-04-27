@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import PostList from 'components/PostList';
 
@@ -25,20 +25,19 @@ export const Posts = () => {
 
   const sortedAndSearchedPosts = usePosts(posts, filter.sort, filter.query);
 
-  const [fetchPosts, isPostLoading, postError] = useFetching(
-    async (limit, page) => {
-      const response = await PostService.getAll(limit, page);
-      setPosts(response.data);
-      // console.log(response.headers['x-total-count']);
-      const totalCount = response.headers['x-total-count'];
-      setTotalPages(getPageCount(totalCount, limit));
-    }
-  );
-  // console.log(setTotalPages);
+  const fetchPostsCallback = useCallback(async (limit, page) => {
+    const response = await PostService.getAll(limit, page);
+    setPosts(response.data);
+    const totalCount = response.headers['x-total-count'];
+    setTotalPages(getPageCount(totalCount, limit));
+  }, []);
+
+  const [fetchPosts, isPostLoading, postError] =
+    useFetching(fetchPostsCallback);
 
   useEffect(() => {
     fetchPosts(limit, page);
-  }, [limit, page]);
+  }, [limit, page, fetchPosts]);
 
   const createPost = newPost => {
     setPosts([...posts, newPost]);
