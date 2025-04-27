@@ -55,7 +55,7 @@ export const Posts = () => {
 
   return (
     <div className="App">
-      <button onClick={fetchPosts}>Get Post</button>
+      {/* <button onClick={fetchPosts}>Get Post</button> */}
       <MyButton style={{ marginTop: 30 }} onClick={() => setModal(true)}>
         Створити користувача
       </MyButton>

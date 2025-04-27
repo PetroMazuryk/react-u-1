@@ -20,7 +20,7 @@ function App() {
         <Route path="todo" element={<ToDoPage />} />
         <Route path="about" element={<About />} />
         <Route path="posts" element={<Posts />} />
-        <Route path="posts/:id" element={<PostIdPage />} />
+        <Route path="post/:id" element={<PostIdPage />} />
         <Route path="*" element={<Error />} />
       </Route>
     </Routes>

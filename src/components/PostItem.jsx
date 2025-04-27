@@ -1,9 +1,12 @@
 import React from 'react';
 import MyButton from './UI/button/MyButton';
-// import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const PostItem = props => {
-  //   console.log(props);
+  const navigate = useNavigate();
+  const openPost = post => {
+    navigate(`/post/${post.id}`);
+  };
 
   return (
     <div className="post">
@@ -15,7 +18,7 @@ const PostItem = props => {
         <div>{props.post.body}</div>
       </div>
       <div className="post__btn">
-        <MyButton onClick={() => props.remove(props.post)}>Відкрити</MyButton>
+        <MyButton onClick={() => openPost(props.post)}>Відкрити</MyButton>
         <MyButton onClick={() => props.remove(props.post)}>Видалити</MyButton>
       </div>
     </div>
