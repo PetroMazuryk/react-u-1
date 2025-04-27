@@ -18,7 +18,7 @@ const Layout = () => {
           <Link to="/news">NewsPage</Link>
           <Link to="/todo">TodoPage</Link>
           <Link to="/about">About</Link>
-          {/* <Link to="/posts">Posts</Link> */}
+          <Link to="/posts">Posts</Link>
         </nav>
       </Header>
       <Outlet />

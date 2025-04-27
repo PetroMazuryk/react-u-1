@@ -6,7 +6,7 @@ import NewsPage from 'pages/NewsPage';
 import ToDoPage from 'pages/ToDoPage';
 import About from 'pages/About';
 import Posts from 'pages/Posts';
-// import PostIdPage from 'pages/PostIdPage';
+import PostIdPage from 'pages/PostIdPage';
 import Error from 'pages/Error';
 
 import Layout from 'Layout/Layout';
@@ -20,7 +20,7 @@ function App() {
         <Route path="todo" element={<ToDoPage />} />
         <Route path="about" element={<About />} />
         <Route path="posts" element={<Posts />} />
-        {/* <Route path="posts/:id" element={<PostIdPage />} /> */}
+        <Route path="posts/:id" element={<PostIdPage />} />
         <Route path="*" element={<Error />} />
       </Route>
     </Routes>
