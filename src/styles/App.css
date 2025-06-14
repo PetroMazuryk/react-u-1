@@ -3,15 +3,15 @@
   padding: 0;
   box-sizing: border-box;
 }
-#root {
+
+/* #root {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.App {
-  width: 800px;
-  margin: 0 auto;
-}
+} */
+
+
+
 .post {
   display: flex;
   padding: 15px;
@@ -25,21 +25,26 @@
   display: flex;
   gap: 10px;
 }
+
 /* Animation */
 .post-enter {
   transform: translateX(-350px);
 }
+
 .post-enter-active {
   transform: translateX(0px);
   transition: all 500ms ease-in;
 }
+
 .post-exit {
   opacity: 1;
 }
+
 .post-exit-active {
   transform: translateX(-350px);
   transition: all 500ms ease-in;
 }
+
 /* pagination */
 
 .page__wrapper {
@@ -48,11 +53,13 @@
   justify-content: center;
   gap: 10px;
 }
+
 .page {
   padding: 10px;
   border: 1px solid teal;
   cursor: pointer;
 }
+
 .page__current {
   border: 2px solid orange;
   font-weight: bold;
