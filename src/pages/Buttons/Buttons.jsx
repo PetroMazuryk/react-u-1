@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Buttons.module.css';
 
 const Buttons = () => {
@@ -13,36 +14,26 @@ const Buttons = () => {
       {/* Social Icons Hover Effect #1 */}
       <ul className={styles.socialList}>
         <li>
-          <a href="#">
+          <Link href="#">
             <i className="fab fa-facebook-f"></i>
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#">
+          <Link href="#">
             <i className="fab fa-twitter"></i>
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#">
+          <Link href="#">
             <i className="fab fa-linkedin-in"></i>
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#">
+          <Link href="#">
             <i className="fab fa-google-plus-g"></i>
-          </a>
+          </Link>
         </li>
       </ul>
-
-      {/* Social Icons Hover Effect #2 */}
-      <div className={styles.wrapper2}>
-        <a href="#" className={styles.icon2}>
-          <i className="fs-brands fs-instagram">Instagram</i>
-        </a>
-        <a href="#" className={styles.icon2}>
-          <i className="fs-brands fs-linkedin-in">Linkedin</i>
-        </a>
-      </div>
     </div>
   );
 };
