@@ -7,6 +7,7 @@ import ToDoPage from 'pages/ToDoPage';
 import About from 'pages/About';
 import Posts from 'pages/Posts';
 import PostIdPage from 'pages/PostIdPage';
+import Buttons from 'pages/Buttons/Buttons';
 import Error from 'pages/Error';
 
 import Layout from 'Layout/Layout';
@@ -19,6 +20,7 @@ function App() {
         <Route path="news" element={<NewsPage />} />
         <Route path="todo" element={<ToDoPage />} />
         <Route path="about" element={<About />} />
+        <Route path="buttons" element={<Buttons />} />
         <Route path="posts" element={<Posts />} />
         <Route path="post/:id" element={<PostIdPage />} />
         <Route path="*" element={<Error />} />

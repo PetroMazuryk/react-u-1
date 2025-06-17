@@ -11,14 +11,10 @@ export const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
   padding: 8px 0;
   margin-bottom: 16px;
   border-bottom: 1px solid black;
-
-  > nav {
-    display: flex;
-  }
+  position: relative;
 `;
 
 export const Logo = styled.p`
@@ -36,5 +32,48 @@ export const Link = styled(NavLink)`
   &.active {
     color: white;
     background-color: orangered;
+  }
+`;
+
+export const Nav = styled.nav`
+  display: flex;
+  gap: 8px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const BurgerButton = styled.button`
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+`;
+
+export const MobileMenu = styled.div`
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  z-index: 999;
+
+  a {
+    padding: 12px 16px;
+    border-bottom: 1px solid #eee;
+    text-align: right;
+
+    &:last-child {
+      border-bottom: none;
+    }
   }
 `;
