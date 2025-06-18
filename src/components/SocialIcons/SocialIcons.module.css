@@ -1,0 +1,79 @@
+.socialList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    background-color: #287136;
+    padding: 56px;
+}
+
+.socialItem {
+    list-style: none;
+    display: flex;
+}
+
+.socialLink {
+    width: 80px;
+    height: 80px;
+    background-color: #fff;
+    text-align: center;
+    line-height: 80px;
+    font-size: 35px;
+    margin: 0 10px;
+    display: block;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    border: 3px solid #fff;
+    z-index: 1;
+    transition: 0.5s;
+}
+
+.icon {
+    position: relative;
+    color: #262626;
+    transition: 0.5s;
+    z-index: 3;
+}
+
+.socialLink:hover .icon {
+    color: #fff;
+    transform: rotateY(360deg);
+}
+
+.socialLink::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: 0.5s;
+    z-index: 2;
+    background-color: #f00;
+    /* fallback */
+}
+
+.socialLink:hover::before {
+    top: 0;
+}
+
+/* Колір для кожного пункту */
+.socialItem:nth-child(1) .socialLink::before {
+    background-color: #3b5999;
+    /* Facebook */
+}
+
+.socialItem:nth-child(2) .socialLink::before {
+    background-color: #55acee;
+    /* Twitter */
+}
+
+.socialItem:nth-child(3) .socialLink::before {
+    background-color: #0077b5;
+    /* LinkedIn */
+}
+
+.socialItem:nth-child(4) .socialLink::before {
+    background-color: #dd4b39;
+    /* Google+ */
+}
