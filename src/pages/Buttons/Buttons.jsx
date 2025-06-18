@@ -1,14 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import clsx from 'clsx';
+import RippleButton from 'components/RippleButton/RippleButton';
+
 import styles from './Buttons.module.css';
 
 const Buttons = () => {
   return (
     <div className={styles.btnWrapper}>
       <div className={styles.pageItem}>
-        <button data-ripple="once" className={styles.button} type="button">
-          Button once
-        </button>
+        <RippleButton className={clsx(styles.rippleButton)}>
+          Ripple Button
+        </RippleButton>
       </div>
 
       {/* Social Icons Hover Effect #1 */}
