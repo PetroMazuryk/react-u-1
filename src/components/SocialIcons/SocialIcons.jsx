@@ -5,6 +5,7 @@ import {
   FaTwitter,
   FaLinkedinIn,
   FaGooglePlusG,
+  FaYoutube,
 } from 'react-icons/fa';
 
 import styles from './SocialIcons.module.css';
@@ -30,6 +31,11 @@ const SocialIcons = () => {
       <li className={styles.socialItem}>
         <Link href="#" className={styles.socialLink} aria-label="Google Plus">
           <FaGooglePlusG className={styles.icon} />
+        </Link>
+      </li>
+      <li className={styles.socialItem}>
+        <Link to="#" className={styles.socialLink} aria-label="YouTube">
+          <FaYoutube className={styles.icon} />
         </Link>
       </li>
     </ul>
