@@ -82,3 +82,8 @@
     background-color: #ff0000;
     /* YouTube */
 }
+
+.socialItem:nth-child(6) .socialLink::before {
+    background-color: #0088cc;
+    /* Telegram */
+}
