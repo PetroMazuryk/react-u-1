@@ -87,3 +87,8 @@
     background-color: #0088cc;
     /* Telegram */
 }
+
+.socialItem:nth-child(7) .socialLink::before {
+    background-color: #e1306c;
+    /* Instagram */
+}

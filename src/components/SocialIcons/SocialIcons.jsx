@@ -7,6 +7,7 @@ import {
   FaGooglePlusG,
   FaYoutube,
   FaTelegramPlane,
+  FaInstagram,
 } from 'react-icons/fa';
 
 import styles from './SocialIcons.module.css';
@@ -42,6 +43,11 @@ const SocialIcons = () => {
       <li className={styles.socialItem}>
         <Link to="#" className={styles.socialLink} aria-label="Telegram">
           <FaTelegramPlane className={styles.icon} />
+        </Link>
+      </li>
+      <li className={styles.socialItem}>
+        <Link to="#" className={styles.socialLink} aria-label="Instagram">
+          <FaInstagram className={styles.icon} />
         </Link>
       </li>
     </ul>
