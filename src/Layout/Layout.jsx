@@ -42,7 +42,7 @@ const Layout = () => {
           <Link to="/news">NewsPage</Link>
           <Link to="/todo">TodoPage</Link>
           <Link to="/about">About</Link>
-          <Link to="/buttons">Butons</Link>
+          <Link to="/buttons">Buttons</Link>
           <Link to="/posts">Posts</Link>
         </Nav>
 
@@ -59,6 +59,9 @@ const Layout = () => {
             </Link>
             <Link to="/about" onClick={closeMenu}>
               About
+            </Link>
+            <Link to="/buttons" onClick={closeMenu}>
+              Buttons
             </Link>
             <Link to="/posts" onClick={closeMenu}>
               Posts
