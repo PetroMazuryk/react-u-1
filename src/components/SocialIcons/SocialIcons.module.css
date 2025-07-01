@@ -26,6 +26,17 @@
     border: 3px solid #fff;
     z-index: 1;
     transition: 0.5s;
+
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.socialLink:focus {
+    outline: none;
+    box-shadow: none;
+    background: transparent;
 }
 
 .icon {
