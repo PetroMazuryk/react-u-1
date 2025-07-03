@@ -1,0 +1,68 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    background-color: #dd4b39;
+    padding: 56px;
+}
+
+.icon {
+    width: 5.625rem;
+    height: 5.625rem;
+    border-radius: 14px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.icon:hover .iconSvg {
+    transform: scale(1.2);
+    color: #f1f1f1;
+}
+
+.icon::before {
+    background-color: #0077b5;
+    content: '';
+    position: absolute;
+    width: 130%;
+    height: 130%;
+    left: -110%;
+    top: 80%;
+    transform: rotate(45deg);
+    transition: all 0.3s ease;
+    z-index: 0;
+}
+
+.icon:hover::before {
+    animation: slide 0.7s forwards;
+}
+
+@keyframes slide {
+    0% {
+        left: -110%;
+        top: 80%;
+    }
+
+    50% {
+        left: 10%;
+        top: -40%;
+    }
+
+    100% {
+        left: -15%;
+        top: -15%;
+    }
+}
+
+.iconSvg {
+    position: relative;
+    z-index: 1;
+    transition: 0.3s ease;
+    color: #000;
+}
