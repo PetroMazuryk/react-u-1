@@ -23,7 +23,7 @@ const ButtonSlide = () => {
         <a
           key={label}
           href={href}
-          className={styles.icon}
+          className={`${styles.icon} ${styles[label.toLowerCase()]}`}
           target="_blank"
           rel="noopener noreferrer"
           aria-label={label}

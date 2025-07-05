@@ -7,6 +7,7 @@
     padding: 56px;
 }
 
+
 .icon {
     width: 5.625rem;
     height: 5.625rem;
@@ -21,13 +22,8 @@
     transition: transform 0.3s ease;
 }
 
-.icon:hover .iconSvg {
-    transform: scale(1.2);
-    color: #f1f1f1;
-}
 
 .icon::before {
-    background-color: #0077b5;
     content: '';
     position: absolute;
     width: 130%;
@@ -39,9 +35,11 @@
     z-index: 0;
 }
 
+
 .icon:hover::before {
     animation: slide 0.7s forwards;
 }
+
 
 @keyframes slide {
     0% {
@@ -60,9 +58,26 @@
     }
 }
 
+
 .iconSvg {
     position: relative;
     z-index: 1;
-    transition: 0.3s ease;
     color: #000;
+    transition: transform 0.3s ease;
+}
+
+
+.icon:hover .iconSvg {
+    transform: scale(1.2);
+    color: #f1f1f1;
+}
+
+
+.instagram::before {
+    background-color: #e1306c;
+}
+
+
+.linkedin::before {
+    background-color: #0077b5;
 }
