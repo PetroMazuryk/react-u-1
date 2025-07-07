@@ -76,6 +76,10 @@
     background-color: #3b5999;
 }
 
+.twitter::before {
+    background-color: #55acee;
+}
+
 .instagram::before {
     background-color: #e1306c;
 }

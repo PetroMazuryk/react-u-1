@@ -1,5 +1,10 @@
 import React from 'react';
-import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedinIn,
+} from 'react-icons/fa';
 
 import styles from './ButtonSlide.module.css';
 
@@ -10,14 +15,19 @@ const buttons = [
     icon: <FaFacebookF size={28} className={styles.iconSvg} />,
   },
   {
-    href: 'https://instagram.com',
-    label: 'Instagram',
-    icon: <FaInstagram size={28} className={styles.iconSvg} />,
+    href: 'https://twitter.com',
+    label: 'Twitter',
+    icon: <FaTwitter size={28} className={styles.iconSvg} />,
   },
   {
     href: 'https://linkedin.com',
     label: 'LinkedIn',
     icon: <FaLinkedinIn size={28} className={styles.iconSvg} />,
+  },
+  {
+    href: 'https://instagram.com',
+    label: 'Instagram',
+    icon: <FaInstagram size={28} className={styles.iconSvg} />,
   },
 ];
 
