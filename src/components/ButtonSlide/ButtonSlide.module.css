@@ -80,11 +80,14 @@
     background-color: #55acee;
 }
 
-.instagram::before {
-    background-color: #e1306c;
-}
-
-
 .linkedin::before {
     background-color: #0077b5;
+}
+
+.google::before {
+    background-color: #f56856;
+}
+
+.instagram::before {
+    background-color: #e1306c;
 }

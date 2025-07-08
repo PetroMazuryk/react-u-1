@@ -3,6 +3,7 @@ import {
   FaFacebookF,
   FaTwitter,
   FaInstagram,
+  FaGooglePlusG,
   FaLinkedinIn,
 } from 'react-icons/fa';
 
@@ -23,6 +24,11 @@ const buttons = [
     href: 'https://linkedin.com',
     label: 'LinkedIn',
     icon: <FaLinkedinIn size={28} className={styles.iconSvg} />,
+  },
+  {
+    href: 'https://plus.google.com',
+    label: 'Google',
+    icon: <FaGooglePlusG size={28} className={styles.iconSvg} />,
   },
   {
     href: 'https://instagram.com',
