@@ -92,6 +92,10 @@
     background-color: #ef4028;
 }
 
+.telegram::before {
+    background-color: #168ac8;
+}
+
 .instagram::before {
     background-color: #e1306c;
 }
