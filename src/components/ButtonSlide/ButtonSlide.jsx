@@ -7,6 +7,7 @@ import {
   FaYoutube,
   FaTelegramPlane,
   FaLinkedinIn,
+  FaWhatsapp,
 } from 'react-icons/fa';
 
 import styles from './ButtonSlide.module.css';
@@ -46,6 +47,11 @@ const buttons = [
     href: 'https://instagram.com',
     label: 'Instagram',
     icon: <FaInstagram size={28} className={styles.iconSvg} />,
+  },
+  {
+    href: 'https://wa.me/1234567890',
+    label: 'WhatsApp',
+    icon: <FaWhatsapp size={28} className={styles.iconSvg} />,
   },
 ];
 

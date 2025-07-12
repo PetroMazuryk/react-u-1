@@ -99,3 +99,7 @@
 .instagram::before {
     background-color: #e1306c;
 }
+
+.whatsapp::before {
+    background-color: #f05908;
+}
