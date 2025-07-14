@@ -8,6 +8,7 @@ import {
   FaTelegramPlane,
   FaLinkedinIn,
   FaWhatsapp,
+  FaTiktok,
 } from 'react-icons/fa';
 
 import styles from './ButtonSlide.module.css';
@@ -52,6 +53,11 @@ const buttons = [
     href: 'https://wa.me/1234567890',
     label: 'WhatsApp',
     icon: <FaWhatsapp size={28} className={styles.iconSvg} />,
+  },
+  {
+    href: 'https://tiktok.com/@yourprofile',
+    label: 'TikTok',
+    icon: <FaTiktok size={28} className={styles.iconSvg} />,
   },
 ];
 
