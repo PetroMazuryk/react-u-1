@@ -103,3 +103,8 @@
     background-color: #e1306c;
     /* Instagram */
 }
+
+.socialItem:nth-child(9) .socialLink::before {
+    background-color: #69C9D0;
+    /* Tiktok */
+}

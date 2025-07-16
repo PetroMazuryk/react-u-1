@@ -8,6 +8,7 @@ import {
   FaTelegramPlane,
   FaInstagram,
   FaWhatsapp,
+  FaTiktok,
 } from 'react-icons/fa';
 
 import styles from './SocialIcons.module.css';
@@ -52,6 +53,11 @@ const socialLinks = [
     href: 'https://wa.me/1234567890',
     label: 'WhatsApp',
     icon: <FaWhatsapp className={styles.icon} />,
+  },
+  {
+    href: 'https://tiktok.com/@yourprofile',
+    label: 'TikTok',
+    icon: <FaTiktok className={styles.icon} />,
   },
 ];
 
