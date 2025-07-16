@@ -104,6 +104,11 @@
     /* Instagram */
 }
 
+.socialItem:nth-child(8) .socialLink::before {
+    background-color: #f05908;
+    /* Whatsapp */
+}
+
 .socialItem:nth-child(9) .socialLink::before {
     background-color: #69C9D0;
     /* Tiktok */
