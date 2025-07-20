@@ -113,3 +113,8 @@
     background-color: #69C9D0;
     /* Tiktok */
 }
+
+.socialItem:nth-child(10) .socialLink::before {
+    background-color: #4A154B;
+    /* Slack*/
+}
