@@ -1,5 +1,7 @@
 .wrapper {
+
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 2rem;
@@ -106,5 +108,10 @@
 
 .tiktok::before {
     background-color: #69C9D0;
+    ;
+}
+
+.slack::before {
+    background-color: #4A154B;
     ;
 }
