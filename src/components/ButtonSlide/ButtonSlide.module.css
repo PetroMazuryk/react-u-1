@@ -115,3 +115,7 @@
     background-color: #4A154B;
     ;
 }
+
+.discord::before {
+    background-color: #5865F2;
+}
