@@ -62,7 +62,7 @@ const buttons = [
     icon: <FaTiktok size={28} className={styles.iconSvg} />,
   },
   {
-    href: 'https://tiktok.com/@yourprofile',
+    href: 'https://slack.com/yourworkspace',
     label: 'Slack',
     icon: <FaSlack size={28} className={styles.iconSvg} />,
   },
