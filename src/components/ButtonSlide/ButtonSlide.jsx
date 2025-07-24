@@ -67,7 +67,7 @@ const buttons = [
     icon: <FaSlack size={28} className={styles.iconSvg} />,
   },
   {
-    href: 'https://tiktok.com/@yourprofile',
+    href: 'https://discord.com/invite/yourserver',
     label: 'Discord',
     icon: <FaDiscord size={28} className={styles.iconSvg} />,
   },
