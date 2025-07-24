@@ -61,7 +61,7 @@ const socialLinks = [
     icon: <FaTiktok className={styles.icon} />,
   },
   {
-    href: 'https://tiktok.com/@yourprofile',
+    href: 'https://slack.com/yourworkspace',
     label: 'Slack',
     icon: <FaSlack className={styles.icon} />,
   },
