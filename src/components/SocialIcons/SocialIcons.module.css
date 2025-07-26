@@ -118,3 +118,8 @@
     background-color: #4A154B;
     /* Slack*/
 }
+
+.socialItem:nth-child(11) .socialLink::before {
+    background-color: #5865F2;
+    /* Discor*/
+}

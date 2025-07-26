@@ -10,6 +10,7 @@ import {
   FaWhatsapp,
   FaTiktok,
   FaSlack,
+  FaDiscord,
 } from 'react-icons/fa';
 
 import styles from './SocialIcons.module.css';
@@ -64,6 +65,11 @@ const socialLinks = [
     href: 'https://slack.com/yourworkspace',
     label: 'Slack',
     icon: <FaSlack className={styles.icon} />,
+  },
+  {
+    href: 'https://discord.com/invite/yourserver',
+    label: 'Discord',
+    icon: <FaDiscord className={styles.icon} />,
   },
 ];
 
