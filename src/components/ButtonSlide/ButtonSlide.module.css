@@ -1,19 +1,17 @@
 .wrapper {
-
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
     background-color: #ee8375;
-    padding: 56px;
+    padding: 20px;
 }
 
-
 .icon {
-    width: 5.625rem;
-    height: 5.625rem;
-    border-radius: 14px;
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
     background-color: #fff;
     display: flex;
     justify-content: center;
@@ -23,7 +21,6 @@
     text-decoration: none;
     transition: transform 0.3s ease;
 }
-
 
 .icon::before {
     content: '';
@@ -37,11 +34,9 @@
     z-index: 0;
 }
 
-
 .icon:hover::before {
     animation: slide 0.7s forwards;
 }
-
 
 @keyframes slide {
     0% {
@@ -60,19 +55,19 @@
     }
 }
 
-
 .iconSvg {
     position: relative;
     z-index: 1;
     color: #000;
     transition: transform 0.3s ease;
+    font-size: 20px;
 }
-
 
 .icon:hover .iconSvg {
     transform: scale(1.2);
     color: #f1f1f1;
 }
+
 
 .facebook::before {
     background-color: #3b5999;
@@ -107,15 +102,49 @@
 }
 
 .tiktok::before {
-    background-color: #69C9D0;
-    ;
+    background-color: #69c9d0;
 }
 
 .slack::before {
-    background-color: #4A154B;
-    ;
+    background-color: #4a154b;
 }
 
 .discord::before {
-    background-color: #5865F2;
+    background-color: #5865f2;
+}
+
+
+@media (min-width: 768px) {
+    .wrapper {
+        gap: 1.5rem;
+        padding: 40px;
+    }
+
+    .icon {
+        width: 70px;
+        height: 70px;
+        border-radius: 12px;
+    }
+
+    .iconSvg {
+        font-size: 24px;
+    }
+}
+
+
+@media (min-width: 1200px) {
+    .wrapper {
+        gap: 2rem;
+        padding: 56px;
+    }
+
+    .icon {
+        width: 90px;
+        height: 90px;
+        border-radius: 14px;
+    }
+
+    .iconSvg {
+        font-size: 28px;
+    }
 }
