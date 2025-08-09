@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
-import clsx from 'clsx';
-import RippleButton from 'components/RippleButton/RippleButton';
-import SocialIcons from 'components/SocialIcons/SocialIcons';
-import ButtonSlide from 'components/ButtonSlide/ButtonSlide';
+import clsx from "clsx";
+import RippleButton from "../../components/RippleButton/RippleButton";
+import SocialIcons from "../../components/SocialIcons/SocialIcons";
+import ButtonSlide from "../../components/ButtonSlide/ButtonSlide";
 
-import styles from './Buttons.module.css';
+import styles from "./Buttons.module.css";
 
 const Buttons = () => {
   return (

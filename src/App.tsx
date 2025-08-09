@@ -1,16 +1,16 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import './styles/App.css';
-import HomePage from 'pages/HomePage';
-import NewsPage from 'pages/NewsPage';
-import ToDoPage from 'pages/ToDoPage';
-import About from 'pages/About';
-import Posts from 'pages/Posts';
-import PostIdPage from 'pages/PostIdPage';
-import Buttons from 'pages/Buttons/Buttons';
-import Error from 'pages/Error';
+import React from "react";
+import {Routes, Route} from "react-router-dom";
+import "./styles/App.css";
+import HomePage from "./pages/HomePage";
+import NewsPage from "./pages/NewsPage";
+import ToDoPage from "./pages/ToDoPage";
+import About from "./pages/About";
+import Posts from "./pages/Posts";
+import PostIdPage from "./pages/PostIdPage";
+import Buttons from "./pages/Buttons/Buttons";
+import Error from "./pages/Error";
 
-import Layout from 'Layout/Layout';
+import Layout from "./Layout/Layout";
 
 function App() {
   return (

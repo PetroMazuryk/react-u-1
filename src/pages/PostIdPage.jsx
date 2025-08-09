@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import PostService from 'API/PostService';
+import {useEffect, useState} from "react";
+import {useParams} from "react-router-dom";
+import PostService from "../API/PostService";
 
 const PostIdPage = () => {
-  const { id } = useParams();
+  const {id} = useParams();
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -14,7 +14,7 @@ const PostIdPage = () => {
         const response = await PostService.getById(id);
         setPost(response.data);
       } catch (e) {
-        setError('Не вдалося завантажити пост');
+        setError("Не вдалося завантажити пост");
       } finally {
         setLoading(false);
       }
