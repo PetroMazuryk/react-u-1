@@ -1,8 +1,10 @@
 import React, {forwardRef, useImperativeHandle, useRef} from "react";
+import styles from "./CustomInput.module.css";
 
 export type CustomInputHandle = {
   focus: () => void;
 };
+
 export const CustomInput = forwardRef<CustomInputHandle>((_, ref) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -14,5 +16,5 @@ export const CustomInput = forwardRef<CustomInputHandle>((_, ref) => {
     },
   }));
 
-  return <input type="text" className="custom-input" ref={inputRef} />;
+  return <input type="text" className={styles.customInput} ref={inputRef} />;
 });
