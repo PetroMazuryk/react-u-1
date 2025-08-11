@@ -4,6 +4,7 @@ import styles from "./CustomInput.module.css";
 export type CustomInputHandle = {
   focus: () => void;
   clear: () => void;
+  setValue: () => void;
 };
 
 export const CustomInput = forwardRef<CustomInputHandle>((_, ref) => {
@@ -18,6 +19,11 @@ export const CustomInput = forwardRef<CustomInputHandle>((_, ref) => {
     clear: () => {
       if (inputRef.current) {
         inputRef.current.value = "";
+      }
+    },
+    setValue: () => {
+      if (inputRef.current) {
+        inputRef.current.value = "Some text !!!";
       }
     },
   }));

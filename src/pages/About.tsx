@@ -15,9 +15,13 @@ const About = () => {
     inputRef.current?.clear();
   };
 
+  const handleValue = () => {
+    inputRef.current?.setValue();
+  };
+
   return (
     <>
-      <div style={{textAlign: "center"}}>Ця програма створена</div>
+      <div style={{textAlign: "center"}}>Використання useImperativeHandle</div>
       <CustomInput ref={inputRef} />
       <button
         style={{backgroundColor: "lawngreen", padding: 8, marginRight: 10}}
@@ -26,10 +30,17 @@ const About = () => {
         Focus Input
       </button>
       <button
-        style={{backgroundColor: "lawngreen", padding: 8}}
+        style={{backgroundColor: "lawngreen", padding: 8, marginRight: 10}}
         onClick={handleClear}
       >
         Clear Input
+      </button>
+
+      <button
+        style={{backgroundColor: "lawngreen", padding: 8}}
+        onClick={handleValue}
+      >
+        Value Input
       </button>
     </>
   );
