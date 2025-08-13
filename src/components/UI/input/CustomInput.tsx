@@ -8,25 +8,38 @@ export type CustomInputHandle = {
   getValue: () => string;
 };
 
-export const CustomInput = forwardRef<CustomInputHandle>((_, ref) => {
-  const inputRef = useRef<HTMLInputElement>(null);
+type CustomInputProps = {
+  placeholder?: string;
+};
 
-  useImperativeHandle(ref, () => ({
-    focus: () => {
-      if (inputRef.current) {
-        inputRef.current.focus();
-      }
-    },
-    clear: () => {
-      if (inputRef.current) {
-        inputRef.current.value = "";
-      }
-    },
-    setValue: (value: string = "Some text !!!") => {
-      if (inputRef.current) inputRef.current.value = value;
-    },
-    getValue: () => inputRef.current?.value || "",
-  }));
+export const CustomInput = forwardRef<CustomInputHandle, CustomInputProps>(
+  ({placeholder = "Enter text..."}, ref) => {
+    const inputRef = useRef<HTMLInputElement>(null);
 
-  return <input type="text" className={styles.customInput} ref={inputRef} />;
-});
+    useImperativeHandle(ref, () => ({
+      focus: () => {
+        if (inputRef.current) {
+          inputRef.current.focus();
+        }
+      },
+      clear: () => {
+        if (inputRef.current) {
+          inputRef.current.value = "";
+        }
+      },
+      setValue: (value: string = "Some text !!!") => {
+        if (inputRef.current) inputRef.current.value = value;
+      },
+      getValue: () => inputRef.current?.value || "",
+    }));
+
+    return (
+      <input
+        type="text"
+        placeholder={placeholder}
+        className={styles.customInput}
+        ref={inputRef}
+      />
+    );
+  },
+);
