@@ -1,4 +1,4 @@
-import React, {useRef} from "react";
+import React, {useRef, useState} from "react";
 import {
   CustomInput,
   CustomInputHandle,
@@ -6,6 +6,7 @@ import {
 
 const About = () => {
   const inputRef = useRef<CustomInputHandle>(null);
+  const [currentValue, setCurrentValue] = useState<string>("");
 
   const handleFocus = () => {
     inputRef.current?.focus();
@@ -13,6 +14,7 @@ const About = () => {
 
   const handleClear = () => {
     inputRef.current?.clear();
+    setCurrentValue("");
   };
 
   const handleValue = () => {
@@ -20,40 +22,51 @@ const About = () => {
   };
 
   const handleGetValue = () => {
-    const value = inputRef.current?.getValue();
-    alert(`Поточне значення: ${value}`);
+    const value = inputRef.current?.getValue() || "";
+    setCurrentValue(value);
   };
 
   return (
     <>
-      <div style={{textAlign: "center"}}>Використання useImperativeHandle</div>
+      <div style={{textAlign: "center", marginBottom: 10}}>
+        Використання useImperativeHandle
+      </div>
+
       <CustomInput ref={inputRef} />
-      <button
-        style={{backgroundColor: "lawngreen", padding: 8, marginRight: 10}}
-        onClick={handleFocus}
-      >
-        Focus Input
-      </button>
-      <button
-        style={{backgroundColor: "lawngreen", padding: 8, marginRight: 10}}
-        onClick={handleClear}
-      >
-        Clear Input
-      </button>
 
-      <button
-        style={{backgroundColor: "lawngreen", padding: 8, marginRight: 1}}
-        onClick={handleValue}
-      >
-        Value Input
-      </button>
+      <div style={{marginTop: 10}}>
+        <button
+          style={{backgroundColor: "lawngreen", padding: 8, marginRight: 10}}
+          onClick={handleFocus}
+        >
+          Focus Input
+        </button>
 
-      <button
-        style={{backgroundColor: "lawngreen", padding: 8}}
-        onClick={handleGetValue}
-      >
-        Get Value
-      </button>
+        <button
+          style={{backgroundColor: "lawngreen", padding: 8, marginRight: 10}}
+          onClick={handleClear}
+        >
+          Clear Input
+        </button>
+
+        <button
+          style={{backgroundColor: "lawngreen", padding: 8, marginRight: 10}}
+          onClick={handleValue}
+        >
+          Value Input
+        </button>
+
+        <button
+          style={{backgroundColor: "lawngreen", padding: 8}}
+          onClick={handleGetValue}
+        >
+          Get Value
+        </button>
+      </div>
+
+      <div style={{marginTop: 15, fontWeight: "bold"}}>
+        Поточне значення: {currentValue}
+      </div>
     </>
   );
 };
