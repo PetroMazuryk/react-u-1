@@ -19,6 +19,11 @@ const About = () => {
     inputRef.current?.setValue();
   };
 
+  const handleGetValue = () => {
+    const value = inputRef.current?.getValue();
+    alert(`Поточне значення: ${value}`);
+  };
+
   return (
     <>
       <div style={{textAlign: "center"}}>Використання useImperativeHandle</div>
@@ -37,10 +42,17 @@ const About = () => {
       </button>
 
       <button
-        style={{backgroundColor: "lawngreen", padding: 8}}
+        style={{backgroundColor: "lawngreen", padding: 8, marginRight: 1}}
         onClick={handleValue}
       >
         Value Input
+      </button>
+
+      <button
+        style={{backgroundColor: "lawngreen", padding: 8}}
+        onClick={handleGetValue}
+      >
+        Get Value
       </button>
     </>
   );

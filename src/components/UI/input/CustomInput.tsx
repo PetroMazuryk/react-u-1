@@ -5,6 +5,7 @@ export type CustomInputHandle = {
   focus: () => void;
   clear: () => void;
   setValue: (value?: string) => void;
+  getValue: () => string;
 };
 
 export const CustomInput = forwardRef<CustomInputHandle>((_, ref) => {
@@ -24,6 +25,7 @@ export const CustomInput = forwardRef<CustomInputHandle>((_, ref) => {
     setValue: (value: string = "Some text !!!") => {
       if (inputRef.current) inputRef.current.value = value;
     },
+    getValue: () => inputRef.current?.value || "",
   }));
 
   return <input type="text" className={styles.customInput} ref={inputRef} />;
