@@ -24,7 +24,11 @@ const About = () => {
     <div className={styles.container}>
       <h2>Використання useImperativeHandle</h2>
 
-      <CustomInput ref={inputRef} />
+      <CustomInput
+        ref={inputRef}
+        placeholder="Введіть текст..."
+        defaultValue="Стартове значення"
+      />
 
       <div className={styles.buttonGroup}>
         <button className={styles.button} onClick={handleFocus}>
