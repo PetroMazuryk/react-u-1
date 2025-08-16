@@ -11,10 +11,11 @@ export type CustomInputHandle = {
 type CustomInputProps = {
   placeholder?: string;
   defaultValue?: string;
+  onChange?: (value: string) => void;
 };
 
 export const CustomInput = forwardRef<CustomInputHandle, CustomInputProps>(
-  ({placeholder = "Enter text...", defaultValue = ""}, ref) => {
+  ({placeholder = "Enter text...", defaultValue = "", onChange}, ref) => {
     const inputRef = useRef<HTMLInputElement>(null);
 
     useImperativeHandle(ref, () => ({
@@ -41,6 +42,7 @@ export const CustomInput = forwardRef<CustomInputHandle, CustomInputProps>(
         defaultValue={defaultValue}
         className={styles.customInput}
         ref={inputRef}
+        onChange={(e) => onChange?.(e.target.value)}
       />
     );
   },

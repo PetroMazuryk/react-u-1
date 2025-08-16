@@ -12,7 +12,6 @@ const About = () => {
   const handleFocus = () => inputRef.current?.focus();
   const handleClear = () => {
     inputRef.current?.clear();
-    setCurrentValue("");
   };
   const handleValue = () => inputRef.current?.setValue();
   const handleGetValue = () => {
@@ -28,6 +27,7 @@ const About = () => {
         ref={inputRef}
         placeholder="Введіть текст..."
         defaultValue="Стартове значення"
+        onChange={(value) => setCurrentValue(value)}
       />
 
       <div className={styles.buttonGroup}>
