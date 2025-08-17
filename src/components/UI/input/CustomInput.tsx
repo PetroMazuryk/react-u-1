@@ -9,28 +9,40 @@ export type CustomInputHandle = {
 };
 
 type CustomInputProps = {
+  value?: string; // контрольований режим
   placeholder?: string;
-  defaultValue?: string;
+  defaultValue?: string; // неконтрольований
   onChange?: (value: string) => void;
 };
 
 export const CustomInput = forwardRef<CustomInputHandle, CustomInputProps>(
-  ({placeholder = "Enter text...", defaultValue = "", onChange}, ref) => {
+  (
+    {placeholder = "Enter text...", defaultValue = "", onChange, value},
+    ref,
+  ) => {
     const inputRef = useRef<HTMLInputElement>(null);
 
     useImperativeHandle(ref, () => ({
-      focus: () => {
-        if (inputRef.current) {
-          inputRef.current.focus();
-        }
-      },
+      focus: () => inputRef.current?.focus(),
       clear: () => {
-        if (inputRef.current) {
+        if (value !== undefined) {
+          // контрольований
+          onChange?.("");
+        } else if (inputRef.current) {
+          // неконтрольований
           inputRef.current.value = "";
+          onChange?.("");
         }
       },
-      setValue: (value: string = "Some text !!!") => {
-        if (inputRef.current) inputRef.current.value = value;
+      setValue: (newValue: string = "Some text !!!") => {
+        if (value !== undefined) {
+          // контрольований
+          onChange?.(newValue);
+        } else if (inputRef.current) {
+          // неконтрольований
+          inputRef.current.value = newValue;
+          onChange?.(newValue);
+        }
       },
       getValue: () => inputRef.current?.value || "",
     }));
@@ -38,8 +50,9 @@ export const CustomInput = forwardRef<CustomInputHandle, CustomInputProps>(
     return (
       <input
         type="text"
+        value={value}
         placeholder={placeholder}
-        defaultValue={defaultValue}
+        defaultValue={value === undefined ? defaultValue : undefined}
         className={styles.customInput}
         ref={inputRef}
         onChange={(e) => onChange?.(e.target.value)}
