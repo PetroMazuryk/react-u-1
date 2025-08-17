@@ -1,4 +1,9 @@
-import React, {forwardRef, useImperativeHandle, useRef} from "react";
+import React, {
+  forwardRef,
+  useImperativeHandle,
+  useRef,
+  ChangeEvent,
+} from "react";
 import styles from "./CustomInput.module.css";
 
 export type CustomInputHandle = {
@@ -55,7 +60,9 @@ export const CustomInput = forwardRef<CustomInputHandle, CustomInputProps>(
         defaultValue={value === undefined ? defaultValue : undefined}
         className={styles.customInput}
         ref={inputRef}
-        onChange={(e) => onChange?.(e.target.value)}
+        onChange={(e: ChangeEvent<HTMLInputElement>) =>
+          onChange?.(e.target.value)
+        }
       />
     );
   },
