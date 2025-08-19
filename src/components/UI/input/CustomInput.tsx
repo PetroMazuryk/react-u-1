@@ -13,12 +13,12 @@ export type CustomInputHandle = {
   getValue: () => string;
 };
 
-type CustomInputProps = {
+type CustomInputProps = Readonly<{
   value?: string; // контрольований режим
   placeholder?: string;
   defaultValue?: string; // неконтрольований
   onChange?: (value: string) => void;
-};
+}>;
 
 export const CustomInput = forwardRef<CustomInputHandle, CustomInputProps>(
   (
