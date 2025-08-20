@@ -55,7 +55,7 @@ export const CustomInput = forwardRef<CustomInputHandle, CustomInputProps>(
     return (
       <input
         type="text"
-        value={value}
+        value={value !== undefined ? value : undefined}
         placeholder={placeholder}
         defaultValue={value === undefined ? defaultValue : undefined}
         className={styles.customInput}
