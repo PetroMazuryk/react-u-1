@@ -1,10 +1,10 @@
-import Sidebar from '../components/Sidebar/Sidebar';
-import React from 'react';
+import Sidebar from "../components/Sidebar/Sidebar";
+import {RunningLine} from "../components/RunningLine/RunningLine";
 
 const HomePage = () => {
   return (
     <>
-      <div>HomePage</div>
+      <RunningLine />
       <Sidebar />
     </>
   );

@@ -1,0 +1,35 @@
+.marquee {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    background: #3f3b3b;
+    color: #e2dbdb;
+    margin-bottom: 20px;
+    padding: 12px 0;
+}
+
+.track {
+    display: inline-block;
+    animation: scroll 15s linear infinite;
+}
+
+
+
+.track span {
+    font-size: 20px;
+    padding-right: 40px;
+}
+
+.marquee:hover .track {
+    animation-play-state: paused;
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0%);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
