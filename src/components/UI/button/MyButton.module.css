@@ -1,8 +1,49 @@
 .myBtn {
-  padding: 5px 15px;
-  color: teal;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 8px 12px;
   font-size: 14px;
-  background: transparent;
-  border: 1px solid teal;
+  font-weight: 500;
+  line-height: 1;
+
+  color: #0f766e;
+  background-color: transparent;
+
+  border: 1.5px solid #0f766e;
+  border-radius: 8px;
+
   cursor: pointer;
+  user-select: none;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.1s ease;
+}
+
+
+.myBtn:hover {
+  background-color: #0f766e;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(15, 118, 110, 0.3);
+}
+
+
+.myBtn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 6px rgba(15, 118, 110, 0.4);
+}
+
+.myBtn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.4);
+}
+
+.myBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
 }
