@@ -1,10 +1,10 @@
-import React from 'react';
-import MyButton from './UI/button/MyButton';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import MyButton from "./UI/button/MyButton";
+import {useNavigate} from "react-router-dom";
 
-const PostItem = props => {
+const PostItem = (props) => {
   const navigate = useNavigate();
-  const openPost = post => {
+  const openPost = (post) => {
     navigate(`/post/${post.id}`);
   };
 
@@ -18,8 +18,12 @@ const PostItem = props => {
         <div>{props.post.body}</div>
       </div>
       <div className="post__btn">
-        <MyButton onClick={() => openPost(props.post)}>Відкрити</MyButton>
-        <MyButton onClick={() => props.remove(props.post)}>Видалити</MyButton>
+        <MyButton variant="open" onClick={() => openPost(props.post)}>
+          Відкрити
+        </MyButton>
+        <MyButton variant="delete" onClick={() => props.remove(props.post)}>
+          Видалити
+        </MyButton>
       </div>
     </div>
   );

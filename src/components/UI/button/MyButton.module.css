@@ -1,4 +1,4 @@
-.myBtn {
+/* .myBtn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -46,4 +46,82 @@
   opacity: 0.5;
   cursor: not-allowed;
   box-shadow: none;
+} */
+.myBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  background-color: transparent;
+  border: 1.5px solid transparent;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.1s ease;
+}
+
+.myBtn:active {
+  transform: translateY(1px);
+}
+
+.myBtn:focus-visible {
+  outline: none;
+}
+
+.myBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.create {
+  color: #0f766e;
+  border-color: #0f766e;
+}
+
+.create:hover {
+  background-color: #0f766e;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(15, 118, 110, 0.3);
+}
+
+.create:focus-visible {
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.4);
+}
+
+.open {
+  color: #2563eb;
+  border-color: #2563eb;
+}
+
+.open:hover {
+  background-color: #7787a9;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+}
+
+.open:focus-visible {
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.4);
+}
+
+.delete {
+  color: #dc2626;
+  border-color: #dc2626;
+}
+
+.delete:hover {
+  background-color: #dc2626;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(220, 38, 38, 0.3);
+}
+
+.delete:focus-visible {
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.4);
 }
