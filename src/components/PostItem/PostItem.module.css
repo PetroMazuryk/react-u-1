@@ -1,0 +1,31 @@
+.post {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    border: 1px solid teal;
+    border-radius: 8px;
+}
+
+.postContent {
+    flex: 1;
+}
+
+.postBtns {
+    display: flex;
+    gap: 8px;
+}
+
+
+@media (max-width: 640px) {
+    .post {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .postBtns {
+        justify-content: center;
+        margin-top: 12px;
+    }
+}

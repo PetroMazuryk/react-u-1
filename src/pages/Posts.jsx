@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useCallback} from "react";
 
 // import PostList from "Headercomponents/PostList";
-import PostList from "../components/PostList";
+import PostList from "../components/PostList/PostList";
 
 import PostForm from "../components/PostForm";
 import PostFilter from "../components/PostFilter";
