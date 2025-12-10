@@ -6,7 +6,7 @@ import NewsPage from "./pages/NewsPage";
 import ToDoPage from "./pages/ToDoPage";
 import About from "./pages/About/About";
 import Posts from "./pages/Posts";
-import PostIdPage from "./pages/PostIdPage";
+import PostIdPage from "./pages/PostIdPage/PostIdPage";
 import Buttons from "./pages/Buttons/Buttons";
 import Error from "./pages/Error";
 

@@ -1,9 +1,10 @@
-import React from "react";
 import {useEffect, useState, useCallback} from "react";
 import {useParams} from "react-router-dom";
-import PostService from "../API/PostService";
-import {useFetching} from "../hooks/useFetching";
+import PostService from "../../API/PostService";
+import {useFetching} from "../../hooks/useFetching";
 import {Loader} from "lucide-react";
+
+import styles from "./PostIdPage.module.css";
 
 const PostIdPage = () => {
   const {id} = useParams();
@@ -35,18 +36,20 @@ const PostIdPage = () => {
 
   return (
     <>
-      <h1>{post?.title}</h1>
-      <p>{post?.body}</p>
-      <h2>Коментарі</h2>
+      <h1 className={styles.postTitle}>{post?.title}</h1>
+      <p className={styles.postBody}>{post?.body}</p>
+
+      <h2 className={styles.commentsTitle}>Коментарі</h2>
+
       {isCommentLoading ? (
         <Loader />
       ) : (
-        <div>
+        <div className={styles.commentsList}>
           {comments.map((comm) => (
-            <React.Fragment key={comm.id}>
-              <h5>{comm.email}</h5>
-              <p>{comm.body}</p>
-            </React.Fragment>
+            <div className={styles.commentItem} key={comm.id}>
+              <h5 className={styles.commentEmail}>{comm.email}</h5>
+              <p className={styles.commentBody}>{comm.body}</p>
+            </div>
           ))}
         </div>
       )}
