@@ -1,23 +1,25 @@
-import React from 'react';
+import {getPagesArray} from "../../../utils/pages";
 
-import { getPagesArray } from '../../../utils/pages';
+import styles from "./Pagination.module.css";
 
-const Pagination = ({ totalPages, page, changePage }) => {
-  let pagesArray = getPagesArray(totalPages);
+const Pagination = ({totalPages, page, changePage}) => {
+  const pagesArray = getPagesArray(totalPages);
+
   return (
-    <div>
-      <div className="page__wrapper">
-        {pagesArray.map(p => (
-          <span
-            onClick={() => changePage(p)}
-            key={p}
-            className={page === p ? 'page page__current' : 'page'}
-          >
-            {p}
-          </span>
-        ))}
-      </div>
+    <div className={styles.pageWrapper}>
+      {pagesArray.map((p) => (
+        <span
+          key={p}
+          onClick={() => changePage(p)}
+          className={
+            page === p ? `${styles.page} ${styles.pageCurrent}` : styles.page
+          }
+        >
+          {p}
+        </span>
+      ))}
     </div>
   );
 };
+
 export default Pagination;

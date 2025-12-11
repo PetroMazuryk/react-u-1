@@ -1,0 +1,42 @@
+.pageWrapper {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.page {
+    padding: 8px 12px;
+    border: 1px solid teal;
+    border-radius: 6px;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.25s ease, color 0.25s ease,
+        transform 0.1s ease;
+    font-size: 16px;
+}
+
+.page:hover {
+    background-color: teal;
+    color: white;
+}
+
+.pageCurrent {
+    background-color: teal;
+    color: white;
+    font-weight: 600;
+    transform: scale(1.05);
+}
+
+
+@media (max-width: 480px) {
+    .page {
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+
+    .pageWrapper {
+        gap: 6px;
+    }
+}
