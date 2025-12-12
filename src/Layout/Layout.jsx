@@ -1,5 +1,6 @@
-import { useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import {useState} from "react";
+import {Outlet} from "react-router-dom";
+
 import {
   Container,
   Header,
@@ -8,18 +9,27 @@ import {
   Nav,
   BurgerButton,
   MobileMenu,
-} from './Layout.styled';
+} from "./Layout.styled";
+
+import PasswordModal from "../components/ModalPassword/ModalPassword";
 
 const Layout = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isAuthorized, setIsAuthorized] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(prev => !prev);
-  };
+  const toggleMenu = () => setIsOpen((prev) => !prev);
+  const closeMenu = () => setIsOpen(false);
 
-  const closeMenu = () => {
-    setIsOpen(false);
-  };
+  if (!isAuthorized) {
+    return (
+      <PasswordModal
+        isOpen={!isAuthorized}
+        onSubmit={(pass) => {
+          if (pass === "11111") setIsAuthorized(true);
+        }}
+      />
+    );
+  }
 
   return (
     <Container>
@@ -27,13 +37,11 @@ const Layout = () => {
         <Logo>
           <span role="img" aria-label="computer icon">
             💻
-          </span>{' '}
+          </span>{" "}
           Logo
         </Logo>
 
-        <BurgerButton onClick={toggleMenu} aria-label="Toggle menu">
-          ☰
-        </BurgerButton>
+        <BurgerButton onClick={toggleMenu}>☰</BurgerButton>
 
         <Nav>
           <Link to="/" end>
