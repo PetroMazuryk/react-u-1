@@ -1,13 +1,18 @@
-import React from 'react';
+import styles from "./MySelect.module.css";
 
-const MySelect = ({ options, defaultValue, value, onChange }) => {
+const MySelect = ({options, defaultValue, value, onChange}) => {
   return (
-    <div>
-      <select value={value} onChange={event => onChange(event.target.value)}>
+    <div className={styles.selectWrapper}>
+      <select
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className={styles.mySelect}
+      >
         <option disabled value="">
           {defaultValue}
         </option>
-        {options.map(option => (
+
+        {options.map((option) => (
           <option key={option.value} value={option.value}>
             {option.name}
           </option>
@@ -16,4 +21,5 @@ const MySelect = ({ options, defaultValue, value, onChange }) => {
     </div>
   );
 };
+
 export default MySelect;
