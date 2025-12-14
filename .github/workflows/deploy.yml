@@ -8,17 +8,20 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v2.3.1
+      - name: Checkout
+        uses: actions/checkout@v3
 
-      - name: Install, lint, build 🔧
+      - name: Set environment variables
+        run: echo "REACT_APP_PASSWORD=${{ secrets.REACT_APP_PASSWORD }}" >> .env
+
+      - name: Install, lint, build
         run: |
           npm install
           npm run lint:js
           npm run build
 
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.0
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.4.0
         with:
           branch: gh-pages
           folder: build
