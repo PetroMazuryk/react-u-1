@@ -26,8 +26,13 @@ const PostList = ({posts, title, remove}) => {
             <CSSTransition
               key={post.id}
               timeout={500}
-              classNames="post"
               nodeRef={nodeRef}
+              classNames={{
+                enter: styles.postEnter,
+                enterActive: styles.postEnterActive,
+                exit: styles.postExit,
+                exitActive: styles.postExitActive,
+              }}
             >
               <PostItem
                 ref={(el) => (nodeRef.current = el)}
