@@ -6,8 +6,10 @@ import styles from "./PasswordModal.module.css";
 const PasswordModal = ({onSuccess}) => {
   const [password, setPassword] = useState("");
 
+  const SITE_PASSWORD = process.env.REACT_APP_PASSWORD;
+
   const handleSubmit = () => {
-    if (password === "1234") {
+    if (password === SITE_PASSWORD) {
       onSuccess();
     } else {
       alert("Невірний пароль");
