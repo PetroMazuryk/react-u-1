@@ -1,9 +1,9 @@
+import {forwardRef} from "react";
 import MyButton from "../UI/button/MyButton";
 import {useNavigate} from "react-router-dom";
-
 import styles from "./PostItem.module.css";
 
-const PostItem = (props) => {
+const PostItem = forwardRef((props, ref) => {
   const navigate = useNavigate();
 
   const openPost = (post) => {
@@ -11,7 +11,7 @@ const PostItem = (props) => {
   };
 
   return (
-    <div className={styles.post}>
+    <div ref={ref} className={styles.post}>
       <div className={styles.postContent}>
         <strong>
           {props.number}. {props.post.title}
@@ -29,6 +29,6 @@ const PostItem = (props) => {
       </div>
     </div>
   );
-};
+});
 
 export default PostItem;
