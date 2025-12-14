@@ -13,6 +13,7 @@ const PasswordModal = ({onSuccess}) => {
       onSuccess();
     } else {
       alert("Невірний пароль");
+      setPassword("");
     }
   };
 
@@ -28,7 +29,17 @@ const PasswordModal = ({onSuccess}) => {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <MyButton onClick={handleSubmit}>Увійти</MyButton>
+        <MyButton
+          style={{
+            width: "100%",
+            justifyContent: "center",
+            display: "inline-flex",
+            marginTop: 10,
+          }}
+          onClick={handleSubmit}
+        >
+          Увійти
+        </MyButton>
       </div>
     </div>
   );
