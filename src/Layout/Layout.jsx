@@ -11,7 +11,7 @@ import {
   MobileMenu,
 } from "./Layout.styled";
 
-import PasswordModal from "../components/ModalPassword/ModalPassword";
+import PasswordModal from "../components/PasswordModal/PasswordModal";
 
 const Layout = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,14 +21,7 @@ const Layout = () => {
   const closeMenu = () => setIsOpen(false);
 
   if (!isAuthorized) {
-    return (
-      <PasswordModal
-        isOpen={!isAuthorized}
-        onSubmit={(pass) => {
-          if (pass === "11111") setIsAuthorized(true);
-        }}
-      />
-    );
+    return <PasswordModal onSuccess={() => setIsAuthorized(true)} />;
   }
 
   return (

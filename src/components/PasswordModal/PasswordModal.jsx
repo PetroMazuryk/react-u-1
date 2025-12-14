@@ -1,12 +1,18 @@
 import {useState} from "react";
 import MyInput from "../UI/input/MyInput";
 import MyButton from "../UI/button/MyButton";
-import styles from "./ModalPassword.module.css";
+import styles from "./PasswordModal.module.css";
 
-const ModalPassword = ({isOpen, onSubmit}) => {
+const PasswordModal = ({onSuccess}) => {
   const [password, setPassword] = useState("");
 
-  if (!isOpen) return null;
+  const handleSubmit = () => {
+    if (password === "1234") {
+      onSuccess();
+    } else {
+      alert("Невірний пароль");
+    }
+  };
 
   return (
     <div className={styles.overlay}>
@@ -20,10 +26,9 @@ const ModalPassword = ({isOpen, onSubmit}) => {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <MyButton onClick={() => onSubmit(password)}>Увійти</MyButton>
+        <MyButton onClick={handleSubmit}>Увійти</MyButton>
       </div>
     </div>
   );
 };
-
-export default ModalPassword;
+export default PasswordModal;
