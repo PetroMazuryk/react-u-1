@@ -7,14 +7,15 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Set environment variables
         run: echo "REACT_APP_PASSWORD=${{ secrets.REACT_APP_PASSWORD }}" >> .env
 
-      - name: Install, lint, build
+      - name: Install dependencies, lint and build
         run: |
           npm install
           npm run lint:js
