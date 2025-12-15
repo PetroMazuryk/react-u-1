@@ -75,7 +75,17 @@ export const Posts = () => {
           {value: -1, name: "Показати все"},
         ]}
       />
-      {postError && <h2>Відбулася помилка ${postError}</h2>}
+      {postError && (
+        <h2
+          style={{
+            textAlign: "center",
+            margin: "20px 0",
+            color: "red",
+          }}
+        >
+          Відбулася помилка {postError}
+        </h2>
+      )}
       {isPostLoading ? (
         <div
           style={{
