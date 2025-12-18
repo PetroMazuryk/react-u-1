@@ -1,13 +1,10 @@
-import React from "react";
+import CodeBlock from "../components/CodeBlock/CodeBlock";
 
 const ToDoPage = () => {
   return (
-    <div>
-      <p>
-        ' Для виділення контактної інформації про власника сайту
-        використовується тег? address
-      </p>
-    </div>
+    <>
+      Назва блоку: <CodeBlock html=" <div>Hello</div>" />
+    </>
   );
 };
 
