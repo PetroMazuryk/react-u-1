@@ -3,7 +3,10 @@ import CodeBlock from "../components/CodeBlock/CodeBlock";
 const ToDoPage = () => {
   return (
     <>
-      Назва блоку: <CodeBlock html=" <div>Hello</div>" />
+      <div style={{outline: "1px solid gray", padding: "6px"}}>
+        Назва блоку: <CodeBlock code={`<div>Hello</div>`} />
+      </div>
+      <CodeBlock code={`<div>Hello</div>`} />
     </>
   );
 };
