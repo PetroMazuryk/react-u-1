@@ -1,0 +1,16 @@
+.block {
+    border: 1px solid #d1d5db;
+    padding: 6px;
+    border-radius: 8px;
+
+}
+
+.title {
+    margin: 0 0 6px;
+    font-size: 18px;
+}
+
+.description {
+    margin: 0 0 8px;
+    color: #4b5563;
+}
