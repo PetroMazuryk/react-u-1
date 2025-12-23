@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import {Outlet} from "react-router-dom";
 
 import {
@@ -13,15 +13,29 @@ import {
 
 import PasswordModal from "../components/PasswordModal/PasswordModal";
 
+const STORAGE_KEY = "isAuthorized";
+
 const Layout = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isAuthorized, setIsAuthorized] = useState(false);
 
+  useEffect(() => {
+    const storedAuth = localStorage.getItem(STORAGE_KEY);
+    if (storedAuth === "true") {
+      setIsAuthorized(true);
+    }
+  }, []);
+
   const toggleMenu = () => setIsOpen((prev) => !prev);
   const closeMenu = () => setIsOpen(false);
 
+  const handleSuccessAuth = () => {
+    localStorage.setItem(STORAGE_KEY, "true");
+    setIsAuthorized(true);
+  };
+
   if (!isAuthorized) {
-    return <PasswordModal onSuccess={() => setIsAuthorized(true)} />;
+    return <PasswordModal onSuccess={handleSuccessAuth} />;
   }
 
   return (
