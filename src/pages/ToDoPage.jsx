@@ -19,6 +19,7 @@ const ToDoPage = () => {
           title={lesson.title}
           description={lesson.description}
           code={lesson.code}
+          language={lesson.language}
         />
       ))}
     </>

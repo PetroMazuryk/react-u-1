@@ -1,9 +1,21 @@
+import {useEffect, useRef} from "react";
+import Prism from "prismjs";
 import styles from "./CodeBlock.module.css";
 
-function CodeBlock({code}) {
+function CodeBlock({code, language = "javascript"}) {
+  const codeRef = useRef(null);
+
+  useEffect(() => {
+    if (codeRef.current) {
+      Prism.highlightElement(codeRef.current);
+    }
+  }, [code]);
+
   return (
     <pre className={styles.pre}>
-      <code className={styles.code}>{code}</code>
+      <code ref={codeRef} className={`language-${language}`}>
+        {code}
+      </code>
     </pre>
   );
 }

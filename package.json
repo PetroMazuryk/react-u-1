@@ -12,6 +12,7 @@
     "env": "^0.0.2",
     "lucide-react": "^0.514.0",
     "modern-normalize": "^2.0.0",
+    "prismjs": "^1.30.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-icons": "^5.5.0",
