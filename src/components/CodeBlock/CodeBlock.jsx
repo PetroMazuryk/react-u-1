@@ -1,5 +1,9 @@
 import {useEffect, useRef} from "react";
 import Prism from "prismjs";
+
+import "prismjs/components/prism-javascript";
+import "prismjs/themes/prism-tomorrow.css";
+
 import styles from "./CodeBlock.module.css";
 
 function CodeBlock({code, language = "javascript"}) {
