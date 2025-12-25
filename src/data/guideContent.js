@@ -8,7 +8,8 @@ export const guideContent = [
   {
     id: 2,
     title: "Текстовий контент",
-    description: "Робота з текстом усередині div",
+    description: "Робота з текстом усередині div: ",
+    inlineCode: `Використовуй <div>Hello</div> для побічних ефектів`,
     code: `<div>Good day</div>`,
   },
   {

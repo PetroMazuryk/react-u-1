@@ -5,6 +5,11 @@
 
 }
 
+.number {
+    color: blue;
+    padding-right: 4px;
+}
+
 .title {
     margin: 0 0 6px;
     font-size: 18px;
