@@ -11,7 +11,7 @@ const LessonBlock = ({id, title, description, code, inlineCode, language}) => {
         {title}
       </h3>
       <p className={styles.description}>
-        {description}{" "}
+        {description}
         {inlineCode && (
           <>
             <InlineCode>{inlineCode}</InlineCode>

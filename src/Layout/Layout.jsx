@@ -55,6 +55,7 @@ const Layout = () => {
             Home
           </Link>
           <Link to="/news">NewsPage</Link>
+          <Link to="/tasks">TasksJS</Link>
           <Link to="/todo">TodoPage</Link>
           <Link to="/about">About</Link>
           <Link to="/buttons">Buttons</Link>
@@ -65,6 +66,9 @@ const Layout = () => {
           <MobileMenu>
             <Link to="/" end onClick={closeMenu}>
               Home
+            </Link>
+            <Link to="/tasks" onClick={closeMenu}>
+              TasksJS
             </Link>
             <Link to="/news" onClick={closeMenu}>
               NewsPage

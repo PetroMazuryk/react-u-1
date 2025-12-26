@@ -11,6 +11,7 @@ import Buttons from "./pages/Buttons/Buttons";
 import Error from "./pages/Error";
 
 import Layout from "./Layout/Layout";
+import TasksPage from "./pages/TasksPage/TasksPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
         <Route path="news" element={<NewsPage />} />
+        <Route path="tasks" element={<TasksPage />} />
         <Route path="todo" element={<ToDoPage />} />
         <Route path="about" element={<About />} />
         <Route path="buttons" element={<Buttons />} />
