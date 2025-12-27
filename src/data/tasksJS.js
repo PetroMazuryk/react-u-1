@@ -4,12 +4,11 @@ export const tasksJS = [
     link: "https://www.youtube.com/watch?v=OZPOO79Y4jk&t=4503s",
     title: "Реалізуй функцію resolve(promises).",
     requirements: [
-      " Функція приймає масив промісів",
-      "Повертає новий Promise",
-      " Якщо хоча б один проміс виконався успішно — повернути його результат",
-      " Якщо всі проміси завершились з reject — повернути reject з масивом усіх помилок",
+      " Функція приймає масив промісів. Повертає новий Promise",
+      " - Якщо хоча б один проміс виконався успішно — повернути його результат",
+      "-  Якщо всі проміси завершились з reject — повернути reject з масивом усіх помилок",
     ],
-    inlineCode: `<div>Hello</div>
+    inlineCode: `<div>Hello Good day nommorow</div>
 `,
     code: `function resolve(promises) {}
 console.log(Promise.resolve(1), Promise.resolve(2));

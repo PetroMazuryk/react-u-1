@@ -13,7 +13,7 @@ const LessonBlock = ({task}) => {
     inlineCode,
     code,
     solution,
-    language,
+    language = "javascript",
   } = task;
 
   return (
@@ -27,15 +27,15 @@ const LessonBlock = ({task}) => {
             rel="noreferrer"
             className={styles.link}
           >
-            ▶ Відео Youtube
+            ▶ Відео YouTube
           </a>
         )}
       </h3>
 
       {requirements && (
         <ul className={styles.requirements}>
-          {requirements.map((req, index) => (
-            <li key={index}>{req}</li>
+          {requirements.map((req) => (
+            <li key={req}>{req}</li>
           ))}
         </ul>
       )}
@@ -44,7 +44,7 @@ const LessonBlock = ({task}) => {
 
       {inlineCode && (
         <p className={styles.inline}>
-          Використовуй <InlineCode>{inlineCode}</InlineCode>
+          <InlineCode>{inlineCode}</InlineCode>
         </p>
       )}
 

@@ -2,17 +2,34 @@
     border: 1px solid #d1d5db;
     padding: 6px;
     border-radius: 8px;
-
-}
-
-.number {
-    color: blue;
-    padding-right: 4px;
+    margin-bottom: 4px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
 }
 
 .title {
     margin: 0 0 6px;
     font-size: 18px;
+}
+
+.number {
+    color: #2563eb;
+    padding-right: 4px;
+}
+
+.link {
+    padding: 2px 4px;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+    background-color: aquamarine;
+}
+
+.requirements {
+    list-style: none;
+    margin: 8px 0;
 }
 
 .description {
