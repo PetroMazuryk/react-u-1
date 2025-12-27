@@ -13,16 +13,8 @@ const ToDoPage = () => {
       </div>
       <h2 style={{margin: 2, textAlign: "center"}}>Посібник з HTML</h2>
 
-      {guideContent.map((lesson) => (
-        <LessonBlock
-          key={lesson.id}
-          id={lesson.id}
-          title={lesson.title}
-          description={lesson.description}
-          code={lesson.code}
-          inlineCode={lesson.inlineCode}
-          language={lesson.language}
-        />
+      {guideContent.map((task) => (
+        <LessonBlock key={task.id} task={task} />
       ))}
     </>
   );

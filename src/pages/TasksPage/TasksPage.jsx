@@ -8,15 +8,8 @@ const TasksPage = () => {
     <main style={{padding: "16px"}}>
       <h2 className={styles.title}>Задачі JS</h2>
 
-      {tasksJS.map(({id, title, description, code, inlineCode, language}) => (
-        <LessonBlock
-          key={id}
-          title={title}
-          description={description}
-          code={code}
-          inlineCode={inlineCode}
-          language={language}
-        />
+      {tasksJS.map((task) => (
+        <LessonBlock key={task.id} task={task} />
       ))}
     </main>
   );
