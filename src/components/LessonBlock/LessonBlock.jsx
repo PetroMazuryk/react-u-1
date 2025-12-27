@@ -11,7 +11,7 @@ const LessonBlock = ({task}) => {
     requirements,
     description,
     inlineCode,
-    code,
+    starterCode,
     solution,
     language = "javascript",
   } = task;
@@ -40,15 +40,13 @@ const LessonBlock = ({task}) => {
         </ul>
       )}
 
-      {description && <p className={styles.description}>{description}</p>}
-
       {inlineCode && (
         <p className={styles.inline}>
           <InlineCode>{inlineCode}</InlineCode>
         </p>
       )}
 
-      {code && <CodeBlock code={code} language={language} />}
+      {starterCode && <CodeBlock code={starterCode} language={language} />}
 
       {solution && (
         <details className={styles.solution}>
@@ -56,6 +54,8 @@ const LessonBlock = ({task}) => {
           <CodeBlock code={solution} language={language} />
         </details>
       )}
+
+      {description && <p className={styles.description}>{description}</p>}
     </section>
   );
 };

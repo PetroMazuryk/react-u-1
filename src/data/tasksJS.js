@@ -10,7 +10,7 @@ export const tasksJS = [
     ],
     inlineCode: `<div>Hello Good day nommorow</div>
 `,
-    code: `function resolve(promises) {}
+    starterCode: `function resolve(promises) {}
 console.log(Promise.resolve(1), Promise.resolve(2));
 console.log(Promise.reject(3), Promise.resolve(4));
 console.log(Promise.reject(5), Promise.reject(6));`,
@@ -38,7 +38,7 @@ resolve([Promise.reject(5), Promise.reject(6)]).catch(console.log); // [5, 6]`,
     id: 2,
     title: "https://www.youtube.com/watch?v=OZPOO79Y4jk&t=4503s",
     description: "Зробити щоб при рендері батька не ререндирився Child",
-    code: `interface CompProps{ }
+    starterCode: `interface CompProps{ }
 
 function Child(onClick, value) { }
 
