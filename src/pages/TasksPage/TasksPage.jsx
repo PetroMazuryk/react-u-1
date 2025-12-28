@@ -5,7 +5,7 @@ import styles from "./TasksPage.module.css";
 
 const TasksPage = () => {
   return (
-    <main style={{padding: "16px"}}>
+    <main style={{padding: "4px"}}>
       <h2 className={styles.title}>Задачі JS</h2>
 
       {tasksJS.map((task) => (

@@ -2,13 +2,14 @@ export const tasksJS = [
   {
     id: 1,
     link: "https://www.youtube.com/watch?v=OZPOO79Y4jk&t=4503s",
-    title: "Реалізуй функцію resolve(promises).",
+    title: "Реалізуй функцію 'resolve' ",
     requirements: [
-      " Функція приймає масив промісів. Повертає новий Promise",
+      " На вхід якої поступає масив промісів, а на виході новий проміс",
+      " який працює по наступних правилах:",
       " - Якщо хоча б один проміс виконався успішно — повернути його результат",
       "-  Якщо всі проміси завершились з reject — повернути reject з масивом усіх помилок",
     ],
-    inlineCode: `<div>Hello Good day nommorow</div>
+    inlineCode: `Відповідь: <div>Hello Good day nommorow</div>
 `,
     starterCode: `function resolve(promises) {}
 console.log(Promise.resolve(1), Promise.resolve(2));
@@ -35,7 +36,7 @@ resolve([Promise.reject(3), Promise.resolve(4)]).then(console.log); // 4
 resolve([Promise.reject(5), Promise.reject(6)]).catch(console.log); // [5, 6]`,
   },
   {
-    id: 2,
+    id: 3,
     title: "https://www.youtube.com/watch?v=OZPOO79Y4jk&t=4503s",
     description: "Зробити щоб при рендері батька не ререндирився Child",
     starterCode: `interface CompProps{ }

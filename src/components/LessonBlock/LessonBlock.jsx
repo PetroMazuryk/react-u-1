@@ -50,7 +50,7 @@ const LessonBlock = ({task}) => {
 
       {solution && (
         <details className={styles.solution}>
-          <summary>Показати рішення</summary>
+          <summary className={styles.summary}>Показати рішення</summary>
           <CodeBlock code={solution} language={language} />
         </details>
       )}

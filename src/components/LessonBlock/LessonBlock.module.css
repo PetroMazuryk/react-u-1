@@ -6,33 +6,54 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
 }
 
+
+
 .title {
     margin: 0 0 6px;
-    font-size: 18px;
+    font-size: clamp(14px, 1.8vw, 18px);
 }
 
 .number {
+    font-size: clamp(14px, 1.8vw, 18px);
     color: #2563eb;
     padding-right: 4px;
 }
 
+
+
+
+
 .link {
-    padding: 2px 4px;
-    margin-left: 10px;
+    margin-left: auto;
+    font-size: clamp(13px, 1.6vw, 16px);
+    padding: 2px 8px;
+    border-radius: 6px;
     text-decoration: none;
+    color: #dc2626;
+    background-color: #fef2f2;
+    transition: background-color 0.2s ease;
 }
 
 .link:hover {
-    text-decoration: underline;
-    background-color: aquamarine;
+    background-color: #fee2e2;
 }
 
 .requirements {
+    font-size: clamp(14px, 1.8vw, 18px);
     list-style: none;
     margin: 8px 0;
 }
 
+.summary {
+    font-size: clamp(14px, 1.8vw, 18px);
+}
+
 .description {
+    font-size: clamp(14px, 1.8vw, 18px);
     margin: 0 0 8px;
     color: #4b5563;
+}
+
+details[open] .summary {
+    color: #0646f6;
 }
