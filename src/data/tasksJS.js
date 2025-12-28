@@ -45,31 +45,27 @@ resolve([Promise.reject(5), Promise.reject(6)]).catch(console.log); // [5, 6]`,
     можна просто робити errors.push(error).`,
   },
   {
-    id: 3,
-    title: "https://www.youtube.com/watch?v=OZPOO79Y4jk&t=4503s",
-    description: "Зробити щоб при рендері батька не ререндирився Child",
-    starterCode: `interface CompProps{ }
+    id: 2,
+    link: "https://www.youtube.com/watch?v=OZPOO79Y4jk&t=4503s",
+    title: "Реалізуй функцію 'resolve': Варіант 2 ",
+    requirements: [
+      "Сучасний і компактний варіант цієї функції через async/await.",
+      "Він робить те ж саме, але код читати легше:",
+    ],
 
-function Child(onClick, value) { }
-
-export function Comp(props: CompProps) {
-    const onClick = () => { }
-    const value = {
-        num:'123'
-    }
-    return (
-        <div>
-    <Child value={value} onClick={onClick}/>
-        </div>
-    )
-}`,
     solution: `async function resolve(promises) {
+  if (promises.length === 0) {
+    return Promise.reject([]); // порожній масив
+  }
   const results = await Promise.allSettled(promises);
 
+  // шукаємо перший успішний проміс
   const fulfilled = results.find(r => r.status === 'fulfilled');
   if (fulfilled) {
     return fulfilled.value;
-  }
+    }
+    
+  // якщо всі проміси відхилилися
   const errors = results
     .filter(r => r.status === 'rejected')
     .map(r => r.reason);
