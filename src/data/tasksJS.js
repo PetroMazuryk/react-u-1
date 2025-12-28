@@ -4,36 +4,45 @@ export const tasksJS = [
     link: "https://www.youtube.com/watch?v=OZPOO79Y4jk&t=4503s",
     title: "Реалізуй функцію 'resolve' ",
     requirements: [
-      " На вхід якої поступає масив промісів, а на виході новий проміс",
-      " який працює по наступних правилах:",
-      " - Якщо хоча б один проміс виконався успішно — повернути його результат",
-      "-  Якщо всі проміси завершились з reject — повернути reject з масивом усіх помилок",
+      "На вхід функції передається масив промісів, а на виході вона повертає новий проміс.",
+      "Новий проміс працює за такими правилами:",
+      "1) Якщо в масиві є хоча б один успішний проміс — повернути результат цього промісу.",
+      "2) Якщо всі проміси завершуються з reject — повернути reject з масивом усіх помилок.",
     ],
-    inlineCode: `Відповідь: <div>Hello Good day nommorow</div>
-`,
+    inlineCode: `Вихід: Кейс 1 — Promise => 5 ; Кейс 2 — Promise => Error(errors) ;`,
     starterCode: `function resolve(promises) {}
-console.log(Promise.resolve(1), Promise.resolve(2));
-console.log(Promise.reject(3), Promise.resolve(4));
-console.log(Promise.reject(5), Promise.reject(6));`,
+[(Promise.resolve(1), Promise.resolve(2)];
+[(Promise.reject(3), Promise.resolve(4)];
+[(Promise.reject(5), Promise.reject(6)];`,
 
-    solution: `async function resolve(promises) {
-  const results = await Promise.allSettled(promises);
+    solution: `function resolve(promises) {
+  return new Promise((resolve, reject) => {
+    const errors = [];
+    let rejectedCount = 0;
 
-  const fulfilled = results.find(r => r.status === 'fulfilled');
-  if (fulfilled) {
-    return fulfilled.value;
-  }
-  const errors = results
-    .filter(r => r.status === 'rejected')
-    .map(r => r.reason);
+    promises.forEach((promise, index) => {
+      Promise.resolve(promise)
+        .then(result => {
+          resolve(result); // перший успішний — готово
+        })
+        .catch(error => {
+          errors[index] = error;
+          rejectedCount++;
 
-  // return Promise.reject(errors);
-  throw errors;
-  // throw results.filter(r => r.status === 'rejected').map(r => r.reason);
+          if (rejectedCount === promises.length) {
+            reject(errors); // всі впали
+          }
+        });
+    });
+  });
 }
 resolve([Promise.resolve(1), Promise.resolve(2)]).then(console.log); // 1
 resolve([Promise.reject(3), Promise.resolve(4)]).then(console.log); // 4
 resolve([Promise.reject(5), Promise.reject(6)]).catch(console.log); // [5, 6]`,
+    description: `Відразу викликає resolve при першому успішному промісі, навіть якщо інші
+     проміси можуть виконатися пізніше. Це стандартна поведінка промісів, але треба пам’ятати.
+    Масив errors зберігає помилки по індексу, що добре для порядку, але не обов’язково потрібно,
+    можна просто робити errors.push(error).`,
   },
   {
     id: 3,
@@ -54,5 +63,23 @@ export function Comp(props: CompProps) {
         </div>
     )
 }`,
+    solution: `async function resolve(promises) {
+  const results = await Promise.allSettled(promises);
+
+  const fulfilled = results.find(r => r.status === 'fulfilled');
+  if (fulfilled) {
+    return fulfilled.value;
+  }
+  const errors = results
+    .filter(r => r.status === 'rejected')
+    .map(r => r.reason);
+
+  // return Promise.reject(errors);
+  throw errors;
+  // throw results.filter(r => r.status === 'rejected').map(r => r.reason);
+}
+resolve([Promise.resolve(1), Promise.resolve(2)]).then(console.log); // 1
+resolve([Promise.reject(3), Promise.resolve(4)]).then(console.log); // 4
+resolve([Promise.reject(5), Promise.reject(6)]).catch(console.log); // [5, 6]`,
   },
 ];
