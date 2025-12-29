@@ -34,8 +34,8 @@ const LessonBlock = ({task}) => {
 
       {requirements && (
         <ul className={styles.requirements}>
-          {requirements.map((req) => (
-            <li key={req}>{req}</li>
+          {requirements.map((req, index) => (
+            <li key={`${req}-${index}`}>{req}</li>
           ))}
         </ul>
       )}

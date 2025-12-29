@@ -157,10 +157,10 @@ console.log(digitPermutation([111111111112, 1222222222])); // []`,
 
   arr.forEach(num => {
     const key = String(num).split('').sort().join('');
-    if (!map.has(key)) {
-      map.set(key, []);
+    if (!map.has(key)) { // Якщо такого ключа ще немає — створити його
+      map.set(key, []); // створює новий запис у Map: ключ: key  - значення: порожній масив
     }
-    map.get(key).push(num);
+    map.get(key).push(num); // Кладемо число num у відповідну групу
   });
 
   // Повертаємо тільки групи, де більше одного числа
@@ -180,6 +180,51 @@ console.log('end test');
 
 `,
     description: `Тепер одиничні числа та унікальні перестановки не включаються,
-     а залишаються лише справжні групи.`,
+     а залишаються лише справжні групи. map — це Map, структура даних для зберігання пар
+ключ → значення`,
+  },
+  {
+    id: 5,
+    link: "",
+    title: "Дано масив цілих натуральних чисел ",
+    requirements: ["Варіант з об’єктом {}"],
+    starterCode: `console.log(digitPermutation([1230, 199, 2301, 1230, 110001, 3021, 101010, 991, 9]));
+// Очікувано: [[1230, 2301, 1230], [199, 991], [110001, 101010]]
+console.log(digitPermutation([11, 22])); // []
+console.log(digitPermutation([11, 11, 11])); // [[11, 11, 11]]
+console.log(digitPermutation([111111111112, 1222222222])); // []`,
+    solution: `function digitPermutation(arr) {
+  const obj = {};
+
+  for (const num of arr) {
+    const key = String(num).split('').sort().join('');
+
+    if (!obj[key]) {
+      obj[key] = [];
+    }
+
+    obj[key].push(num);
+  }
+
+  return Object.values(obj);
+}
+
+console.log(digitPermutation([1230, 199, 2301, 1230, 110001, 3021, 101010, 991, 9]));
+// Очікувано: [[1230, 2301, 1230], [199, 991], [110001, 101010]]
+console.log(digitPermutation([11, 22])); // []
+console.log(digitPermutation([11, 11, 11])); // [[11, 11, 11]]
+console.log(digitPermutation([111111111112, 1222222222])); // []
+`,
+    description: `Важлива відмінність Map vs Object
+Map: Будь-які ключі- has()	- Кращий для великих даних  ///              
+	 Object:  Ключі → рядки - if (!obj[key]) - Простий і швидкий`,
+  },
+  {
+    id: 6,
+    title: "Базовий HTML",
+    requirements: ["", "", ""],
+    starterCode: `<div>Hello</div>`,
+    solution: ``,
+    description: ``,
   },
 ];
