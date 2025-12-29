@@ -52,10 +52,9 @@ const LessonBlock = ({task}) => {
         <details className={styles.solution}>
           <summary className={styles.summary}>Показати рішення</summary>
           <CodeBlock code={solution} language={language} />
+          {description && <p className={styles.description}>{description}</p>}
         </details>
       )}
-
-      {description && <p className={styles.description}>{description}</p>}
     </section>
   );
 };
