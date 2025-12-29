@@ -221,10 +221,81 @@ Map: Будь-які ключі- has()	- Кращий для великих да
   },
   {
     id: 6,
-    title: "Базовий HTML",
-    requirements: ["", "", ""],
-    starterCode: `<div>Hello</div>`,
-    solution: ``,
-    description: ``,
+    link: "https://www.youtube.com/watch?v=OZPOO79Y4jk&t=4503s",
+    title: "useCollback , useMemo  [ 32:24 ]",
+    requirements: [
+      "Зробити так, щоб при рендері батька не ререндирився Child,",
+      "якщо не помінявся velue або onClick",
+    ],
+    starterCode: `interface CompProps{ }
+
+function Child(onClick, value) { }
+
+export function Comp(props: CompProps) {
+    const onClick = () => { }
+    const value = {
+        num:'123'
+    }
+    return (
+        <div>
+    <Child value={value} onClick={onClick}/>
+        </div>
+    )
+}`,
+    solution: `import React, { useCallback, useMemo } from 'react';
+
+interface CompProps {
+  title: string;
+}
+
+
+interface ChildProps {
+  onClick: () => void;
+  value: { num: string };
+}
+
+const Child: React.FC<ChildProps> = React.memo(({ onClick, value }) => {
+  console.log('Child render');
+  return (
+    <div>
+      <button onClick={onClick}>{value.num}</button>
+    </div>
+  );
+});
+
+export function Comp({ title }: CompProps) {
+ const [count, setCount] = React.useState(0);
+ 
+  const onClick = useCallback(() => {
+    console.log('Clicked in Child');
+  }, []);
+
+  const value = useMemo(() => ({ num: '123' }), []);
+  console.log('Parent render');
+
+  return (
+    <>
+        <h1>{title}</h1>
+      <button onClick={() => setCount(c => c + 1)}>
+        Parent + {count}
+      </button>
+
+      <Child value={value} onClick={onClick} />
+    </>
+  );
+}
+
+export default Comp;
+`,
+    description: `useCallback — стабільна функція. useCallback фіксує функцію 
+    між ререндерингами. [] → функція створюється один раз. Посилання на onClick не змінюєтьсяю
+Child не рендериться повторно без потреби.
+useMemo фіксує об’єкт value, щоб він не створювався заново.
+React.memo запам’ятовує результат рендеру компонента і НЕ перерендерює його, якщо props
+ не змінилися (порівняння за ===). Тобто Child перерендериться лише тоді, коли:
+ зміниться onClick або зміниться value.
+memo - використовуєжться для компонентіа, відбувається поверхневе порівняння пропсів,
+і компонент буде бачити , що посилання на value не помінялося, onClick не помінявся.
+ а useMemo використовується для даних.`,
   },
 ];
