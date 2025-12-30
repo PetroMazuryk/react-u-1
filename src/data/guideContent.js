@@ -34,8 +34,9 @@ export const guideContent = [
   },
   {
     id: 4,
-    title: "Базовий HTML",
-    requirements: ["Створення простого HTML-елемента"],
+    link: "",
+    title: "Базовий ",
+    requirements: ["Створення простого "],
     starterCode: `<div>Hello</div>`,
     solution: ``,
     description: ``,
