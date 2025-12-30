@@ -93,12 +93,12 @@ resolve([Promise.reject(5), Promise.reject(6)]).catch(console.log); // [5, 6]`,
 console.clear();
 console.log('start test');
 console.log(
-  digitPermutation([1230, 199, 2301, 1230, 110001, 3021, 101010, 991, 9])
-  // Очікувано: [[1230, 2301, 1230], [199, 991], [110001, 101010], [9]]
+  digitPermutation([1230, 199, 2301, 1230, 110001, 3021, 101010, 991, 9]);
+  // Очікувано: [[9],[199,991],[1230,2301,1230,3021],[110001,101010]]
 );
-console.log(digitPermutation([11], [22]));
-console.log(digitPermutation([11, 11, 11]));
-console.log(digitPermutation([111111111112], [122222222222]));
+console.log(digitPermutation([11], [22])); // [[11],[22]]
+console.log(digitPermutation([11, 11, 11])); // [[11,11,11]]
+console.log(digitPermutation([111111111112], [122222222222])); //[[1222222222],[111111111112]]
 console.log('end test');`,
     solution: `function digitPermutation(arr) {
   const map = new Map();
@@ -187,12 +187,17 @@ console.log('end test');
     id: 5,
     link: "",
     title: "Дано масив цілих натуральних чисел ",
-    requirements: ["Варіант з об’єктом {}"],
-    starterCode: `console.log(digitPermutation([1230, 199, 2301, 1230, 110001, 3021, 101010, 991, 9]));
-// Очікувано: [[1230, 2301, 1230], [199, 991], [110001, 101010]]
-console.log(digitPermutation([11, 22])); // []
-console.log(digitPermutation([11, 11, 11])); // [[11, 11, 11]]
-console.log(digitPermutation([111111111112, 1222222222])); // []`,
+    requirements: [
+      "Варіант з об’єктом {}",
+      "Тобто всі числа в числі одиникові просто переставлені по різному.",
+    ],
+    starterCode: `function digitPermutation(arr) {
+     // your code here  }
+    console.log(digitPermutation([1230, 199, 2301, 1230, 110001, 3021, 101010, 991, 9]);
+    // Очікувано: [[9],[199,991],[1230,2301,1230,3021],[110001,101010]]);
+    console.log(digitPermutation([11], [22])); // [[11],[22]]
+    console.log(digitPermutation([11, 11, 11])); // [[11,11,11]]
+    console.log(digitPermutation([111111111112], [122222222222])); //[[1222222222],[111111111112]]`,
     solution: `function digitPermutation(arr) {
   const obj = {};
 
@@ -210,14 +215,20 @@ console.log(digitPermutation([111111111112, 1222222222])); // []`,
 }
 
 console.log(digitPermutation([1230, 199, 2301, 1230, 110001, 3021, 101010, 991, 9]));
-// Очікувано: [[1230, 2301, 1230], [199, 991], [110001, 101010]]
-console.log(digitPermutation([11, 22])); // []
-console.log(digitPermutation([11, 11, 11])); // [[11, 11, 11]]
-console.log(digitPermutation([111111111112, 1222222222])); // []
+// Очікувано: [[1230, 2301, 1230], [199, 991], [110001, 101010], [9]]
+console.log(digitPermutation([11, 22])); // [[11],[22]]
+console.log(digitPermutation([11, 11, 11]));// [[11, 11, 11]]
+console.log(digitPermutation([111111111112, 1222222222])); // [[111111111112], [1222222222]]
 `,
     description: `Важлива відмінність Map vs Object
-Map: Будь-які ключі- has()	- Кращий для великих даних  ///              
-	 Object:  Ключі → рядки - if (!obj[key]) - Простий і швидкий`,
+  Map: Будь-які ключі- has()	- Кращий для великих даних  ///              
+	 Object:  Ключі → рядки - if (!obj[key]) - Простий і швидкий. Чому я бачу:
+   (4) [Array(3), Array(2), Array(2), Array(1)] замість [[1230, 2301, 1230], [199, 991], [110001, 101010], [9]]
+   Це одне й те саме. DevTools просто згортає вкладені масиви, щоб не захаращувати консоль.
+   Примусово вивести «як у прикладі».  Варіант 1 — через JSON.stringify:
+   console.log(JSON.stringify(digitPermutation([
+  1230, 199, 2301, 1230, 110001, 3021, 101010, 991, 9
+])));`,
   },
   {
     id: 6,
@@ -355,6 +366,69 @@ fetching(5);`,
   },
   {
     id: 8,
+    link: "https://www.youtube.com/watch?v=hkrmyIecHR0&ab_channel=UlbiTV",
+    title: "Реалізація debounce [ 26:25 ]",
+    requirements: ["Щоб крім пятірки, ще появлявся Bob "],
+    starterCode: `const fetchUrl = url => {
+  console.log(\`fetching \${url}...\`, this.firstName);
+};
+const user = {
+    firstName: 'Bob',
+};
+
+function debounce(callback, delay) {
+  let timer = null;
+  return (...args) => {
+    if (timer) {
+      clearTimeout(timer);
+    }
+    timer = setTimeout(() => {
+      callback(...args);
+    }, delay);
+  };
+}
+
+const fetching = debounce(fetchUrl, 300);
+
+fetching(1);
+fetching(2);
+fetching(3);
+fetching(4);
+fetching(5);`,
+    solution: `const fetchUrl2 = function (url) {
+  console.log(\`fetching \${url}...\`, this.firstName); //  fetching 5... Bob
+};
+
+const user = {
+  firstName: 'Bob',
+};
+
+function debounce(callback, delay) {
+  let timer = null;
+  return (...args) => {
+    if (timer) {
+      clearTimeout(timer);
+    }
+    timer = setTimeout(() => {
+      callback(...args);
+    }, delay);
+  };
+}
+const fetching2 = debounce(fetchUrl2.bind(user), 300);
+
+fetching2(1);
+fetching2(2);
+fetching2(3);
+fetching2(4);`,
+    description: `Щоб ще виводився Bob (поміняв стрілку на function + bind(user)). 
+    Стрілочна функція не має власного this. Вона лексично захоплює this з зовнішнього скоупу
+(у браузері це window, у strict — undefined).
+Якщо додати ще один bind, тобто const fetching2 = debounce(fetchUrl2.bind(user).bind({}), 300).
+То все одно виведе fetching 5... Bob, тому що другий bind не змінює this,
+оскільки this вже зафіксований першим bind. ( Запамятовує перший контекст.)`,
+  },
+  {
+    id: 9,
     link: "",
     title: "Базовий ",
     requirements: ["Створення простого "],
