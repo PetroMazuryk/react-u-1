@@ -478,6 +478,14 @@ function getTreeValues(tree) {
     if (node.children?.length) {
       stack.push(...node.children);
     }
+    // if (node.children) {
+    //   // додаємо у зворотному порядку, щоб порядок DFS зберігся
+    //   // DFS (Depth-First Search) — це пошук у глибину, один із базових алгоритмів обходу графів та дерев.
+    //  // Графи — це структури даних, які описують зв’язки між об’єктами.
+    //   for (let i = node.children.length - 1; i >= 0; i--) {
+    //     stack.push(node.children[i]);
+    //   }
+    // }
   }
   return result;
 }
