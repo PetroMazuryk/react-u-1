@@ -429,9 +429,76 @@ fetching2(4);`,
   },
   {
     id: 9,
+    link: "https://www.youtube.com/watch?v=hkrmyIecHR0&ab_channel=UlbiTV",
+    title: "Деревовидна структура [ 28:38 ]",
+    requirements: [
+      "Пройтися по всій структурі та зібрати values в масив.",
+      "Використати ітеративний підхід (через стек)",
+    ],
+    starterCode: `const tree = {
+  value: 1,
+  children: [
+    {
+      value: 2,
+      children: [{ value: 3 }],
+    },
+    {
+      value: 4,
+      children: [{ value: 5 }, { value: 6 }],
+    },
+  ],
+};
+function getTreeValues(tree) {
+  // your code here
+}
+console.log(getTreeValues(tree)); // [1,4,6,5,2,3]`,
+    solution: `const tree = {
+  value: 1,
+  children: [
+    {
+      value: 2,
+      children: [{ value: 3 }],
+    },
+    {
+      value: 4,
+      children: [{ value: 5 }, { value: 6 }],
+    },
+  ],
+};
+function getTreeValues(tree) {
+  const stack = [tree];
+
+  const result = [];
+
+  while (stack.length > 0) {
+    const node = stack.pop();
+    if (node.value !== undefined) {
+      result.push(node.value);
+    }
+    if (node.children?.length) {
+      stack.push(...node.children);
+    }
+  }
+  return result;
+}
+console.log(getTreeValues(tree)); // [1,4,6,5,2,3]`,
+    description: `Якщо велика вкладеність, то краще через стек, щоб уникнути помилки
+     переповнення.`,
+  },
+  {
+    id: 10,
     link: "",
     title: "Базовий ",
-    requirements: ["Створення простого "],
+    requirements: ["Створення "],
+    starterCode: ``,
+    solution: ``,
+    description: ``,
+  },
+  {
+    id: 11,
+    link: "",
+    title: "Базовий ",
+    requirements: ["Створення "],
     starterCode: ``,
     solution: ``,
     description: ``,
