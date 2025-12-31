@@ -499,7 +499,7 @@ console.log(getTreeValues(tree)); // [1,4,6,5,2,3]`,
     title: "Деревовидна структура: Варіант 2",
     requirements: [
       "Пройтися по всій структурі та зібрати values в масив.",
-      "Використати рекурсівний підхід",
+      "Використати рекурсивний підхід",
     ],
     starterCode: `const tree = {
   value: 1,
@@ -553,8 +553,130 @@ console.log(values); // [1,2,3,4,5,6]`,
   },
   {
     id: 11,
+    link: "https://www.youtube.com/watch?v=hkrmyIecHR0&ab_channel=UlbiTV",
+    title: "Рефокторинг коду: React. [32:30]",
+    requirements: ["Зробити ревю та виправити помилки в коді нижче."],
+    starterCode: `
+    import React, {useState} from "react";
+
+const initList = () => {
+  return Array.from({ length: 200 }, (_el, index) => ({
+    value: Math.random(),
+    label: "row " + (index + 1),
+  }));
+};
+export function NewsPage() {
+  const [list] = useState(initList);
+
+  const handleUpdate = () => {
+    list[0].value = Math.random();
+  };
+
+  return (
+    <>
+      <h1>List News Page</h1>
+      <Button onClick={handleUpdate}>Update  " row 1 "</Button>
+      {list.map(({label, value}) => (
+        <Row label={value} value={value} />
+      ))}
+    </>
+  );
+}
+
+function Button(props) {
+  const {children, onClick} = props;
+  return <button onClick={onClick}>{children}</button>;
+}
+
+function Row(props) {
+  const { label, value } = props
+  return (
+    <div style={{marginTop: 8}}>
+      <span style={{ marginRight: 20 }}>{label}</span>
+      <span>{value}</span>
+    </div>
+  );
+}
+
+export default NewsPage;
+`,
+    solution: `import  {useState, memo} from "react";
+    
+    const initList = () =>
+      Array.from({length: 10}, (_el, index) => ({
+        value: Math.random(),
+        label: "row " + (index + 1),
+      }));
+    
+    export function NewsPage() {
+      const [list, setList] = useState(initList);
+    
+      const handleUpdate = () => {
+        setList((prev) =>
+          prev.map((item, index) =>
+            index === 0 ? {...item, value: Math.random()} : item,
+          ),
+        );
+      };
+    
+      return (
+        <>
+          <h1>List News Page</h1>
+          <Button onClick={handleUpdate}>Update "row 1"</Button>
+    
+          {list.map(({label, value}) => (
+            <Row key={label} label={label} value={value} />
+          ))}
+        </>
+      );
+    }
+    
+    function Button(props) {
+      const {children, onClick} = props;
+      return <button onClick={onClick}>{children}</button>;
+    }
+    
+    function Row(props) {
+      const {label, value} = props;
+      return (
+        <div style={{marginTop: 8}}>
+          <span style={{marginRight: 20}}>{label}</span>
+          <span>{value}</span>
+        </div>
+      );
+    }
+
+    // const Row = memo(function(props) {
+    //   const {label, value} = props;
+    //   return (
+    //     <div style={{marginTop: 8}}>
+    //       <span style={{marginRight: 20}}>{label}</span>
+    //       <span>{value}</span>
+    //     </div>
+    //   );
+    // })
+    
+    export default NewsPage;`,
+    description: `Якщо ми натиснемо кнопку "Update row 1", 
+    то крім першої строки будуть перерендуватися всі інші.
+    Щоб цьому запобігти, потрібно: обернути компонент Row в memo.
+   `,
+  },
+  {
+    id: 12,
+    link: "https://www.youtube.com/watch?v=hkrmyIecHR0&ab_channel=UlbiTV",
+    title: "Відмінність any від unknown [38:21]",
+    requirements: [
+      "any і unknown обидва означають “невідомий тип”, але поводяться принципово по-різному ",
+    ],
+    starterCode: ``,
+    solution: ``,
+    description: ``,
+  },
+  {
+    id: 13,
     link: "",
-    title: "Базовий ",
+    title: "типову пастку зі scope, ",
     requirements: ["Створення "],
     starterCode: ``,
     solution: ``,
