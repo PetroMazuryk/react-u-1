@@ -1,12 +1,14 @@
-// const NewsPage = () => {
-//   return (
-//     <>
-//       <div>NewsPage</div>
-//     </>
-//   );
-// };
+const NewsPage = () => {
+  return (
+    <>
+      <div>NewsPage</div>
+    </>
+  );
+};
 
-// export default NewsPage;
+export default NewsPage;
+
+// ==============
 // import React, { useCallback, useMemo } from 'react';
 
 // interface CompProps {
@@ -68,53 +70,44 @@
 // }
 
 // export default NewsPage;
-import {useState, memo} from "react";
+// ==========
+// import {useState, memo} from "react";
 
-const initList = () =>
-  Array.from({length: 10}, (_el, index) => ({
-    value: Math.random(),
-    label: "row " + (index + 1),
-  }));
+// const initList = () =>
+//   Array.from({length: 10}, (_el, index) => ({
+//     value: Math.random(),
+//     label: "row " + (index + 1),
+//   }));
 
-export function NewsPage() {
-  const [list, setList] = useState(initList);
+// export function NewsPage() {
+//   const [list, setList] = useState(initList);
 
-  const handleUpdate = () => {
-    setList((prev) =>
-      prev.map((item, index) =>
-        index === 0 ? {...item, value: Math.random()} : item,
-      ),
-    );
-  };
+//   const handleUpdate = () => {
+//     setList((prev) =>
+//       prev.map((item, index) =>
+//         index === 0 ? {...item, value: Math.random()} : item,
+//       ),
+//     );
+//   };
 
-  return (
-    <>
-      <h1>List News Page</h1>
-      <Button onClick={handleUpdate}>Update "row 1"</Button>
+//   return (
+//     <>
+//       <h1>List News Page</h1>
+//       <Button onClick={handleUpdate}>Update "row 1"</Button>
 
-      {list.map(({label, value}) => (
-        <Row key={label} label={label} value={value} />
-      ))}
-    </>
-  );
-}
+//       {list.map(({label, value}) => (
+//         <Row key={label} label={label} value={value} />
+//       ))}
+//     </>
+//   );
+// }
 
-function Button(props) {
-  const {children, onClick} = props;
-  return <button onClick={onClick}>{children}</button>;
-}
+// function Button(props) {
+//   const {children, onClick} = props;
+//   return <button onClick={onClick}>{children}</button>;
+// }
 
-function Row(props) {
-  const {label, value} = props;
-  return (
-    <div style={{marginTop: 8}}>
-      <span style={{marginRight: 20}}>{label}</span>
-      <span>{value}</span>
-    </div>
-  );
-}
-
-// const Row = memo(function (props) {
+// function Row(props) {
 //   const {label, value} = props;
 //   return (
 //     <div style={{marginTop: 8}}>
@@ -122,6 +115,16 @@ function Row(props) {
 //       <span>{value}</span>
 //     </div>
 //   );
-// });
+// }
 
-export default NewsPage;
+// // const Row = memo(function (props) {
+// //   const {label, value} = props;
+// //   return (
+// //     <div style={{marginTop: 8}}>
+// //       <span style={{marginRight: 20}}>{label}</span>
+// //       <span>{value}</span>
+// //     </div>
+// //   );
+// // });
+
+// export default NewsPage;
