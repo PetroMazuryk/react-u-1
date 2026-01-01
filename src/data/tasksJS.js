@@ -765,7 +765,53 @@ console.log('6');`,
   {
     id: 14,
     link: "",
-    title: "типову пастку зі scope, ",
+    title: "Розкласти масив на рядок з діапазонами [42:57]",
+    requirements: [
+      "Вхід масив чисел. Вихід рядок з діапазоном.",
+      " Необхідно перетворити отриманний на вхід масив в рядок",
+      " згортаючи сусідні по числовому ряду числа в діапвзон",
+    ],
+    starterCode: `range([1, 4, 5, 2, 3, 9, 8, 11, 0]);
+range([1, 4, 3, 2]);
+
+function range(arr) {
+  // your code here
+  }`,
+    solution: `
+function range(arr) {
+  const sortArr = [...arr].sort((a, b) => a - b);
+  if (!sortArr.length) {
+    return '';
+  }
+
+  const result = [String(sortArr[0])];
+  let isInterval = false;
+  for (let i = 1; i <= sortArr.length; i++) {
+    const prev = sortArr[i - 1];
+    const current = sortArr[i];
+
+    if (current - prev === 1) {
+      isInterval = true;
+      continue;
+    }
+    if (isInterval) {
+      result[result.length - 1] +=  \`-\${prev}\`;
+      isInterval = false;
+    }
+    if (current !== undefined) {
+      result.push(String(current));
+    }
+  }
+  return result.join();
+}
+ console.log(range([1, 4, 5, 2, 3, 9, 8, 11, 0])); // 0-5,8-9,11
+ console.log(range([1, 4, 3, 2])); // 1-4`,
+    description: ``,
+  },
+  {
+    id: 15,
+    link: "",
+    title: "типову , ",
     requirements: ["Створення "],
     starterCode: ``,
     solution: ``,
