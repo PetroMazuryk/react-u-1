@@ -542,7 +542,11 @@ function getTreeValuesRecursive(node) {
   return values;
 }
 const values = getTreeValuesRecursive(tree);
-console.log(values); // [1,2,3,4,5,6]`,
+console.log(values); // [1,2,3,4,5,6]
+
+// знайти суму всіх значень value
+const sum = values.reduce((acc, val) => acc + val, 0);
+console.log(sum); // 21`,
     description: `Створюємо масив values із поточним вузлом
 Якщо є children, то для кожного викликаємо функцію рекурсивно
 Через ... додаємо всі значення дочірніх вузлів в масив
