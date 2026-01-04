@@ -781,7 +781,7 @@ console.log('6');`,
   },
   {
     id: 14,
-    link: "",
+    link: "https://www.youtube.com/watch?v=nqwJDi-z738",
     title: "Розкласти масив на рядок з діапазонами [42:57]",
     requirements: [
       "Вхід масив чисел. Вихід рядок з діапазоном.",
@@ -827,11 +827,38 @@ function range(arr) {
   },
   {
     id: 15,
-    link: "",
-    title: "типову , ",
-    requirements: ["Створення "],
-    starterCode: ``,
-    solution: ``,
+    link: "https://www.youtube.com/watch?v=nqwJDi-z738",
+    title: "Розкласти масив на рядок з діапазонами [42:57]",
+    requirements: ["Варіант 2"],
+    starterCode: `range([1, 4, 5, 2, 3, 9, 8, 11, 0]);
+range([1, 4, 3, 2]);
+
+function range(arr) {
+  // your code here
+  }`,
+    solution: `function range(arr) {
+  if (!arr.length) return '';
+
+  const sorted = [...arr].sort((a, b) => a - b);
+  const result = [];
+  let start = sorted[0];
+  for (let i = 1; i <= sorted.length; i++) {
+    // якщо кінець послідовності
+    if (sorted[i] !== sorted[i - 1] + 1) {
+      const end = sorted[i - 1];
+     result.push(start === end ? String(start) : start + '-' + end);
+      start = sorted[i];
+    }
+  }
+  // додати останній діапазон якщо for (let i = 1; i < sorted.length; i++)
+  // const end = sorted[sorted.length - 1];
+  // result.push(start === end ? String(start) : start + '-' + end);
+  return result.join(', ');
+}
+
+console.log(range([1, 4, 5, 2, 3, 9, 8, 11, 0])); // 0-5, 8-9, 11
+console.log(range([1, 4, 3, 2])); // 1-4
+console.log(range([7, 10, 11, 12, 20])); // 7, 10-12, 20`,
     description: ``,
   },
   {
