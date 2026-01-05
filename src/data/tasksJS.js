@@ -863,7 +863,34 @@ console.log(range([7, 10, 11, 12, 20])); // 7, 10-12, 20`,
   },
   {
     id: 16,
-    link: "",
+    link: "https://www.youtube.com/watch?v=DgyHiUmi6SU&ab_channel=WebDev%D1%81%D0%BD%D",
+    title: "Вивести прості числа",
+    requirements: ["Варіант з for"],
+    starterCode: ``,
+    solution: `function generatePrimesOne(count) {
+  const primes = [];
+  let primeCandidate = 2;
+  while (primes.length !== count) {
+    let candidateIsPrime = true;
+    for (let i = 2; i <= Math.sqrt(primeCandidate); i++) {
+      if (primeCandidate % i === 0) {
+        candidateIsPrime = false;
+        break;
+      }
+    }
+
+    if (candidateIsPrime) primes.push(primeCandidate);
+
+    primeCandidate += 1;
+  }
+  return primes;
+}
+ console.log(generatePrimesOne(10));`,
+    description: ``,
+  },
+  {
+    id: 17,
+    link: "https://www.youtube.com/watch?v=DgyHiUmi6SU&ab_channel=WebDev%D1%81%D0%BD%D",
     title: "типову , ",
     requirements: ["Створення "],
     starterCode: ``,
