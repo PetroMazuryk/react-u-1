@@ -891,6 +891,25 @@ console.log(range([7, 10, 11, 12, 20])); // 7, 10-12, 20`,
   {
     id: 17,
     link: "https://www.youtube.com/watch?v=DgyHiUmi6SU&ab_channel=WebDev%D1%81%D0%BD%D",
+    title: "Вивести прості числа",
+    requirements: ["Варіант з some"],
+    starterCode: ``,
+    solution: `function generatePrimes(count) {
+  const primes = [];
+  let primeCandidate = 2;
+  while (primes.length !== count) {
+    const candidateIsPrime = primes.some(item => primeCandidate % item === 0);
+    if (!candidateIsPrime) primes.push(primeCandidate);
+    primeCandidate += 1;
+  }
+  return primes;
+}
+console.log(generatePrimes(20)); // [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]`,
+    description: ``,
+  },
+  {
+    id: 18,
+    link: "https://www.youtube.com/watch?v=DgyHiUmi6SU&ab_channel=WebDev%D1%81%D0%BD%D",
     title: "типову , ",
     requirements: ["Створення "],
     starterCode: ``,
