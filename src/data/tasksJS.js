@@ -864,7 +864,7 @@ console.log(range([7, 10, 11, 12, 20])); // 7, 10-12, 20`,
   {
     id: 16,
     link: "https://www.youtube.com/watch?v=DgyHiUmi6SU&ab_channel=WebDev%D1%81%D0%BD%D",
-    title: "Вивести прості числа",
+    title: "Написати код який генерує список з N простих чисел",
     requirements: ["Варіант з for"],
     starterCode: ``,
     solution: `function generatePrimesOne(count) {
@@ -885,57 +885,76 @@ console.log(range([7, 10, 11, 12, 20])); // 7, 10-12, 20`,
   }
   return primes;
 }
- console.log(generatePrimesOne(10));`,
+ console.log(generatePrimesOne(10));  // [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]`,
     description: ``,
   },
   {
     id: 17,
     link: "https://www.youtube.com/watch?v=DgyHiUmi6SU&ab_channel=WebDev%D1%81%D0%BD%D",
-    title: "Вивести прості числа",
-    requirements: ["Варіант з some"],
+    title:
+      "Написати функцію generatePrimes(count), яка генерує масив з перших count простих чисел.",
+    requirements: [
+      "Варіант з every",
+      "count — ціле невід’ємне число, яке визначає, скільки простих чисел потрібно згенерувати.",
+      "Масив, що містить рівно count простих чисел у зростаючому порядку, починаючи з числа 2",
+    ],
     starterCode: ``,
     solution: `function generatePrimes(count) {
   const primes = [];
-  let primeCandidate = 2;
-  while (primes.length !== count) {
-    const candidateIsPrime = primes.some(item => primeCandidate % item === 0);
-    if (!candidateIsPrime) primes.push(primeCandidate);
-    primeCandidate += 1;
+  let candidate = 2;
+
+  while (primes.length < count) {
+    const isPrime = primes.every(
+      p => candidate % p !== 0
+    );
+
+    if (isPrime) primes.push(candidate);
+    candidate++;
   }
+
   return primes;
 }
-console.log(generatePrimes(20)); // [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]`,
+
+console.log(generatePrimes(10)); // [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]`,
     description: ``,
   },
   {
     id: 18,
     link: "https://www.youtube.com/watch?v=DgyHiUmi6SU&ab_channel=WebDev%D1%81%D0%BD%D",
     title: "Вивести прості числа",
-    requirements: ["Варіант номер 3", ""],
+    requirements: [
+      "Написати функцію getPrimeNumbers(n), яка повертає масив усіх простих чисел від 2 до n включно.",
+      "",
+    ],
     starterCode: `j * j <= i еквівалентно j <= √i, але без обчислення
  квадратного кореня (Math.sqrt(i)), що швидше.`,
     solution: `function getPrimeNumbers(n) {
   const prime = [];
+
   for (let i = 2; i <= n; i++) {
     let isPrime = true;
+
     for (let j = 2; j * j <= i; j++) {
       if (i % j === 0) {
         isPrime = false;
         break;
       }
     }
+
     if (isPrime) {
       prime.push(i);
     }
   }
+    
   return prime;
 }
-console.log(getPrimeNumbers(20)); // (8) 2, 3, 5, 7, 11, 13, 17]`,
+console.log(getPrimeNumbers(20)); [2, 3, 5, 7, 11, 13, 17, 19]
+`,
     description: ``,
   },
   {
     id: 19,
-    link: "https://www.youtube.com/watch?v=DgyHiUmi6SU&ab_channel=WebDev%D1%81%D0%BD%D",
+    link: "",
     title: "типову , ",
     requirements: ["Створення "],
     starterCode: ``,
