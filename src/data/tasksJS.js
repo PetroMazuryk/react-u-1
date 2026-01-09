@@ -954,6 +954,20 @@ console.log(getPrimeNumbers(20)); [2, 3, 5, 7, 11, 13, 17, 19]
   },
   {
     id: 19,
+    link: "https://www.youtube.com/watch?v=YA6yZ_KUIYA&ab_channel=wise.js",
+    title: "Знайти суму елементів масиву",
+    requirements: [""],
+    starterCode: `const array = [1, 2, 2, 4, 5, 6, 6];`,
+    solution: `const array = [1, 2, 2, 4, 5, 6, 6];
+let sum = 0;
+for (let i = 0; i < array.length; i++) {
+  sum += array[i];
+}
+console.log(sum); //26`,
+    description: ``,
+  },
+  {
+    id: 20,
     link: "",
     title: "типову , ",
     requirements: ["Створення "],
