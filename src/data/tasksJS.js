@@ -979,6 +979,22 @@ console.log(sum); //26`,
   {
     id: 21,
     link: "",
+    title: "Максимальний або мінімальний елемент масиву ",
+    requirements: [""],
+    starterCode: ``,
+    solution: `const array = [10, 2, 2, 4, 5, 6, 6];
+let max = array[0];
+for (let i = 0; i < array.length; i++) {
+  if (array[i] > max) {
+    max = array[i];
+  }
+}
+console.log(max); //10`,
+    description: ``,
+  },
+  {
+    id: 22,
+    link: "",
     title: " ",
     requirements: ["Створення "],
     starterCode: ``,
