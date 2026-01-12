@@ -995,6 +995,20 @@ console.log(max); //10`,
   {
     id: 22,
     link: "",
+    title: "Максимальний або мінімальний елемент масиву ",
+    requirements: ["Варіант з тернарним оператором "],
+    starterCode: ``,
+    solution: `const array = [10, 2, 2, 4, 5, 6, 6];
+let max = array[0];
+for (let i = 0; i < array.length; i++) {
+  max = array[i] > max ? array[i] : max;
+}
+console.log(max); //10`,
+    description: ``,
+  },
+  {
+    id: 23,
+    link: "",
     title: " ",
     requirements: ["Створення "],
     starterCode: ``,
