@@ -1015,4 +1015,13 @@ console.log(max); //10`,
     solution: ``,
     description: ``,
   },
+  {
+    id: 24,
+    link: "",
+    title: " ",
+    requirements: ["Створення "],
+    starterCode: ``,
+    solution: ``,
+    description: ``,
+  },
 ];
