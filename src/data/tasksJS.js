@@ -1009,10 +1009,15 @@ console.log(max); //10`,
   {
     id: 23,
     link: "",
-    title: " ",
-    requirements: ["Створення "],
+    title: " Варіант з  Math",
+    requirements: [" "],
     starterCode: ``,
-    solution: ``,
+    solution: `const array = [10, 2, 2, 4, 5, 6, 6];
+let max = array[0];
+for (let i = 0; i < array.length; i++) {
+  max = Math.max(array[i], max);
+}
+console.log(max); //10`,
     description: ``,
   },
   {
