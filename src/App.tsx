@@ -1,17 +1,18 @@
-import React from "react";
+import React, {lazy} from "react";
 import {Routes, Route} from "react-router-dom";
 import "./styles/App.css";
-import HomePage from "./pages/HomePage";
-import NewsPage from "./pages/NewsPage";
-import ToDoPage from "./pages/ToDoPage";
-import About from "./pages/About/About";
-import Posts from "./pages/Posts";
-import PostIdPage from "./pages/PostIdPage/PostIdPage";
-import Buttons from "./pages/Buttons/Buttons";
-import Error from "./pages/Error";
 
 import Layout from "./Layout/Layout";
-import TasksPage from "./pages/TasksPage/TasksPage";
+import Error from "./pages/Error";
+
+const HomePage = lazy(() => import("./pages/HomePage"));
+const NewsPage = lazy(() => import("./pages/NewsPage"));
+const TasksPage = lazy(() => import("./pages/TasksPage/TasksPage"));
+const ToDoPage = lazy(() => import("./pages/ToDoPage"));
+const About = lazy(() => import("./pages/About/About"));
+const Buttons = lazy(() => import("./pages/Buttons/Buttons"));
+const Posts = lazy(() => import("./pages/Posts"));
+const PostIdPage = lazy(() => import("./pages/PostIdPage/PostIdPage"));
 
 function App() {
   return (

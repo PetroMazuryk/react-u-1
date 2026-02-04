@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react";
+import {useState, useEffect, Suspense} from "react";
 import {Outlet} from "react-router-dom";
 
 import {
@@ -89,7 +89,9 @@ const Layout = () => {
         )}
       </Header>
 
-      <Outlet />
+      <Suspense fallback={<div>Loading page...</div>}>
+        <Outlet />
+      </Suspense>
     </Container>
   );
 };
